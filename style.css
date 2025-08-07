@@ -54,7 +54,7 @@ body{
 
 .bio{ max-width:600px; }
 
-/* rectangular image on the right */
+/* rectangular profile image */
 .profile-pic{
   width:230px;           /* tweak as you like */
   height:auto;
