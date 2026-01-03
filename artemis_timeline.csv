@@ -1,0 +1,15 @@
+id,date,title,detail,status,isLaunch,sourceURL,sourceName
+1,2024-11-20,Rocket stacking begins,First SLS booster segment stacked onto mobile launcher,completed,false,https://blogs.nasa.gov/artemis/2024/11/20/nasa-stacks-first-artemis-ii-segment-on-mobile-launcher/,NASA Artemis Blog
+2,2025-02-19,Booster stacking complete,Both solid rocket boosters fully assembled,completed,false,https://www.nasa.gov/blogs/missions/2025/02/19/stacking-complete-on-artemis-ii-rocket-boosters/,NASA
+3,2025-03-23,Core stage stacked,SLS core stage integrated between boosters,completed,false,https://www.nasaspaceflight.com/2025/05/artemis-ii-update-3/,NASASpaceFlight
+4,2025-05-01,ICPS upper stage stacked,Interim Cryogenic Propulsion Stage mated to rocket,completed,false,https://www.nasaspaceflight.com/2025/05/artemis-ii-update-3/,NASASpaceFlight
+5,2025-10-19,Orion stacking complete,Orion spacecraft 'Integrity' integrated with SLS,completed,false,https://www.nasa.gov/missions/artemis/artemis-2/nasa-progresses-toward-artemis-ii-moon-mission/,NASA
+6,2025-11-20,SLS-Orion integration verified,Communications and interface testing completed,completed,false,https://www.nasa.gov/missions/artemis/artemis-2/nasa-progresses-toward-artemis-ii-moon-mission/,NASA
+7,2025-12-21,Countdown Demonstration Test,Crew rehearsal for launch day in VAB,completed,false,https://spaceflightnow.com/2025/12/04/orion-hatch-blemish-delays-launch-day-rehearsal-for-artemis-2-astronauts/,Spaceflight Now
+8,2026-01-15,Wet Dress Rehearsal,Full propellant loading test at Launch Pad 39B,upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
+9,2026-01-25,Flight Readiness Review,Final go/no-go decision for launch,upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
+10,2026-02-03,Rollout to Launch Pad 39B,Vehicle transported to pad for final preparations,upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
+11,2026-02-05,LAUNCH,Liftoff from Kennedy Space Center,upcoming,true,https://www.nasa.gov/mission/artemis-ii/,NASA
+12,2026-02-05,Trans-Lunar Injection,Orion departs Earth orbit for the Moon,upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
+13,2026-02-09,Lunar flyby,Closest approach to Moon (~7400 km),upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
+14,2026-02-15,Splashdown,Crew returns to Earth in Pacific Ocean,upcoming,false,https://en.wikipedia.org/wiki/Artemis_II,Wikipedia
