@@ -82,3 +82,13 @@ body{
   display:block;
   margin:0 auto;      /* centres it */
 }
+
+.role-ta{
+  color:red;
+  font-weight:bold;
+}
+
+.role-instructor{
+  color:purple;
+  font-weight:bold;
+}
