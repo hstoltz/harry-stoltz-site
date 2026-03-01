@@ -3,8 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>First Post</title>
+  <title>Complex Analysis Midterm Review</title>
   <link rel="stylesheet" href="../style.css" />
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['\\[','\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .post-content h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+    .post-content h3 {
+      text-decoration: underline;
+      margin-top: 1.5em;
+    }
+    .box-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1em 0;
+    }
+    .box {
+      border: 2px solid #333;
+      padding: 0.5em 1em;
+    }
+    .box-arrow {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,15 +55,104 @@
     </nav>
   </header>
 
-  <main style="padding:2em; max-width:800px; margin:auto;">
-    <h1>First Post</h1>
-    <p>This is a placeholder first blog post. You can replace this content with anything you like — formatted text, MathJax equations, embedded PDFs, images, etc.</p>
-    <p>Below is an example embedded PDF. Swap out the <code>src</code> with your own file.</p>
+  <main style="padding:2em; max-width:800px; margin:auto;" class="post-content">
+    <h1>Complex Analysis Midterm Review</h1>
 
-    <embed src="placeholder.pdf"
-           type="application/pdf"
-           title="Embedded PDF"
-           class="cv-embed" />
+    <!-- ═══ SECTION 1: BASICS ═══ -->
+    <h2>Basics</h2>
+
+    <h3>Differentiable / Holomorphic</h3>
+    <p>\(f: \Omega \to \mathbb{C}\) is differentiable at \(z_0 \in \Omega\) if the limit exists: (\(h \in \mathbb{C}\))</p>
+    \[
+      f'(z) := \lim_{h \to 0} \frac{f(z + h) - f(z)}{h} = \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}
+    \]
+
+    <h3>Domain</h3>
+    <p>Open &amp; Connected.</p>
+
+    <h3>Connected</h3>
+    <p>Can't split into disjoint open sets.</p>
+
+    <h3>Simply Connected</h3>
+    <p>Connected &amp; no holes.</p>
+
+    <!-- ═══ SECTION 2: TIPS AND TRICKS ═══ -->
+    <h2>Tips and Tricks</h2>
+
+    <h3>Norm</h3>
+    \[
+      N(z) := |z|^2 = z \cdot \bar{z} = x^2 + y^2
+    \]
+
+    <!-- ═══ SECTION 3: FACTS ═══ -->
+    <h2>Facts</h2>
+
+    <h3>Cauchy-Riemann</h3>
+    <p>Write \(f(z) = u + iv\).</p>
+    <div class="box-row">
+      <div class="box">\(f\) is differentiable at \(z\)</div>
+      <span class="box-arrow">\(\iff\)</span>
+      <div class="box">\(\dfrac{\partial u}{\partial x} = \dfrac{\partial v}{\partial y}\) &amp; \(\dfrac{\partial u}{\partial y} = -\dfrac{\partial v}{\partial x}\)</div>
+    </div>
+
+    <h3>Identity Theorem</h3>
+    <p>Suppose \(f\) &amp; \(g\) are holomorphic on a domain \(D\). \(S \subset D\) has an accumulation point of \(D\).</p>
+    <div class="box-row">
+      <div class="box">\(f = g\) on \(S\)</div>
+      <span class="box-arrow">\(\Rightarrow\)</span>
+      <div class="box">\(f = g\) on \(D\)</div>
+    </div>
+
+    <h3>Cauchy Integral Formula</h3>
+    <p>\(\Omega\) is a bounded, simply connected Domain, &amp; \(f\) is holomorphic on \(\overline{\Omega}\). \(\forall a \in \Omega\):</p>
+    \[
+      \Rightarrow \quad f(a) = \frac{1}{2\pi i} \cdot \oint_{\partial \Omega} \frac{f(z)}{z - a}\, dz
+    \]
+    <p>&amp;</p>
+    \[
+      f^{(n)}(a) = \frac{n!}{2\pi i} \cdot \oint_{\partial \Omega} \frac{f(z)}{(z - a)^{n+1}}\, dz
+    \]
+
+    <h3>Cauchy's Theorem</h3>
+    <p>\(\Omega\) is a bounded, simply connected Domain, &amp; \(f\) is holomorphic on \(\overline{\Omega}\).</p>
+    \[
+      \Rightarrow \quad 0 = \oint_{\partial \Omega} f(z)\, dz
+    \]
+
+    <h3>Liouville's Theorem</h3>
+    <div class="box-row">
+      <div class="box">\(f\) is entire &amp; bounded</div>
+      <span class="box-arrow">\(\Rightarrow\)</span>
+      <div class="box">\(f\) is constant</div>
+    </div>
+
+    <h3>Cauchy Bounds</h3>
+    <p>\(f\) is holomorphic on \(\overline{\Omega}\), where \(B_R(a) \subset \Omega\).</p>
+    \[
+      \Rightarrow \quad |f^{(n)}(a)| \leq \frac{n!}{R^n} \cdot \max_{|z - a| = R} |f(z)|
+    \]
+
+    <h3>M-L Inequality</h3>
+    <p>\(f\) is holomorphic on \(\overline{\Omega}\). Simply connected.</p>
+    \[
+      \left| \oint_{\partial \Omega} f(z)\, dz \right| \leq M \cdot L
+    \]
+    <p>where \(M = \displaystyle\max_{z \in \partial \Omega} |f(z)|\) &amp; \(L = \text{length}(\partial \Omega)\).</p>
+
+    <h3>Residue Theorem</h3>
+    <p>\(f\) holomorphic on \(\overline{\Omega}\), simply connected, except for \(z_1, \ldots, z_n\).</p>
+    \[
+      \Rightarrow \quad \oint_{\partial \Omega} f(z)\, dz = 2\pi i \cdot \sum_{i=1}^{n} \underset{z_i}{\operatorname{Res}}[f(z)]
+    \]
+    <p>@ multiplicity \(m\)...</p>
+    \[
+      \underset{z_i}{\operatorname{res}}(f) = \frac{1}{(m-1)!} \cdot \lim_{z \to z_i} \left( \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_i)^m \cdot f(z) \right] \right)
+    \]
+    <p>@ multiplicity \(m = 1\)...</p>
+    \[
+      \underset{z_i}{\operatorname{res}}(f) = \lim_{z \to z_i} \left[ (z - z_i) \cdot f(z) \right]
+    \]
+
   </main>
 </body>
 </html>
