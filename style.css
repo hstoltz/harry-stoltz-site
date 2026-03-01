@@ -33,6 +33,15 @@ body{
 .nav-pubs     { color:#5bc0de; }  /* blue  */
 .nav-teaching { color:#5cb85c; }  /* green */
 .nav-notes    { color:#f0ad4e; }  /* orange*/
+.nav-projects { color:#f0ad4e; }  /* orange*/
+.nav-blog     { color:#d4a017; }  /* yellow*/
+
+/* ---------- Blog list ---------- */
+.blog-list{ list-style:none; padding:0; }
+.blog-list li{ margin-bottom:1.5em; }
+.blog-list a{ font-size:1.15em; font-weight:bold; color:#d4a017; }
+.blog-list .post-date{ color:#888; font-size:0.9em; }
+.blog-list .post-desc{ margin:0.2em 0 0; }
 
 /* ---------- About section ---------- */
 /* STACK children vertically inside <main class="about">  */
