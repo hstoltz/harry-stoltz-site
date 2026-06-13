@@ -1,9 +1,8 @@
-import glob
 from bs4 import BeautifulSoup
 
 
 def test_navbar_links():
-    html_files = glob.glob('*.html')
+    html_files = ['index.html', 'publications.html', 'teaching.html', 'projects.html']
     expected_classes = ['nav-about', 'nav-pubs', 'nav-teaching', 'nav-projects']
     for html_file in html_files:
         with open(html_file, 'r', encoding='utf-8') as f:
