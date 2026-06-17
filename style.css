@@ -76,18 +76,19 @@ body{
 
 /* CV section sits below, centred */
 .olog-block{
-  margin-top:2em;
+  margin:2.5em 0 2em;
   text-align:center;
 }
 
-.olog-block h1{
-  margin-bottom:0.8em;
+.olog-figure{
+  display:block;
+  max-width:850px;
+  margin:0 auto;
 }
 
 .olog-diagram{
   display:block;
   width:100%;
-  max-width:850px;
   height:auto;
   box-sizing:border-box;
   margin:0 auto;
@@ -95,6 +96,13 @@ body{
   border:1px solid #ccc;
   box-shadow:0 0 8px rgba(0,0,0,.1);
   background:#fff;
+}
+
+.olog-caption{
+  margin-top:.65em;
+  color:#555;
+  font-size:.95em;
+  line-height:1.35;
 }
 
 .cv-block{
@@ -159,7 +167,6 @@ body{
     margin:2em auto 0;
   }
 
-  .olog-block h1,
   .cv-block h1{
     font-size:1.7em;
     line-height:1.15;
