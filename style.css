@@ -82,7 +82,7 @@ body{
 
 .olog-figure{
   display:block;
-  max-width:850px;
+  max-width:637.5px;
   margin:0 auto;
 }
 
@@ -92,9 +92,6 @@ body{
   height:auto;
   box-sizing:border-box;
   margin:0 auto;
-  padding:1em;
-  border:1px solid #ccc;
-  box-shadow:0 0 8px rgba(0,0,0,.1);
   background:#fff;
 }
 
@@ -173,7 +170,7 @@ body{
   }
 
   .olog-diagram{
-    padding:.75em;
+    width:100%;
   }
 
   .cv-embed{
