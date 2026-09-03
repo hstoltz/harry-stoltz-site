@@ -50,6 +50,16 @@ def test_current_publication_updates():
     assert mosaic_lev is not None
     assert 'Accepted for publication in Bioinformatics Advances' in mosaic_lev.parent.get_text(' ', strip=True)
 
+    headings = [heading.get_text(' ', strip=True) for heading in soup.find_all('h2')]
+    assert headings == ['Preprints', 'Accepted', 'In Preparation', 'Published']
+
+    preprints = soup.find('h2', string='Preprints').find_next_sibling('ul')
+    accepted = soup.find('h2', string='Accepted').find_next_sibling('ul')
+    in_preparation = soup.find('h2', string='In Preparation').find_next_sibling('ul')
+    assert preprints.find('a', href='https://arxiv.org/abs/2608.14872') is not None
+    assert 'MosaicLev' in accepted.get_text()
+    assert 'ZX Sketch' in in_preparation.get_text()
+
 
 def test_current_teaching_assignment():
     with open('teaching.html', 'r', encoding='utf-8') as f:
