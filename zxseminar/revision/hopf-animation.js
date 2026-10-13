@@ -3,6 +3,18 @@
   'use strict';
   const NS = 'http://www.w3.org/2000/svg';
   const controllers = new Map();
+  const timing=[{hold:180,move:1800},{hold:220,move:2600},{hold:140,move:1400},
+    {hold:220,move:2800},{hold:180,move:2200}];
+  const duration=timing.reduce((sum,s)=>sum+s.hold+s.move,0);
+  const phaseAt=elapsed=>{
+    let offset=0;
+    for(let i=0;i<timing.length;i++){
+      const s=timing[i];
+      if(elapsed<offset+s.hold+s.move)return {index:i,t:Math.max(0,(elapsed-offset-s.hold)/s.move)};
+      offset+=s.hold+s.move;
+    }
+    return {index:timing.length,t:1};
+  };
   const clamp = t => Math.max(0, Math.min(1,t));
   const ease = t => { t=clamp(t); return t*t*t*(t*(t*6-15)+10); };
   const point = (a,b,t) => ({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t});
@@ -153,15 +165,12 @@
         };
       }
     
-      // The scalar bialgebra rewrite has a fixed four-wire interface. Contract its
-      // square to one local event, then unfold the two-spider graph. The two outer
-      // unit spiders remain full-size and attached throughout, as do all four
-      // interface wires. The scalar is part of B2', so it participates in the same
-      // event; it must not be discarded or arbitrarily absorbed into an outer unit.
+      // Let the two colours pass through one another. Both halves share a
+      // nonzero tangent at contact; easing is applied once to the whole move.
+      // The normalization scalar stays in its own component on the left.
       if(index === 1) {
         const scene=endpointScene();
-        const square=['red','green','green-extra','scalar-red'].map(k=>oldNodes.get(k).center);
-        const event={x:square.reduce((s,p)=>s+p.x,0)/4,y:square.reduce((s,p)=>s+p.y,0)/4};
+        const event={x:61.03237,y:38.63867};
         const outer=[
           ['green--top#0','red--top#0',true],
           ['bottom--red#0','bottom--green#0',false],
@@ -170,56 +179,139 @@
         ];
         const internalOld=['green--red#0','green-extra--scalar-red#0',
           'green-extra--red#0','green--scalar-red#0'];
-        const internalNew=['green--red#0','scalar-green--scalar-red#0'];
+        const hermite=(a,b,ma,mb,t)=>{
+          const t2=t*t,t3=t2*t;
+          return {x:(2*t3-3*t2+1)*a.x+(t3-2*t2+t)*ma.x+(-2*t3+3*t2)*b.x+(t3-t2)*mb.x,
+            y:(2*t3-3*t2+1)*a.y+(t3-2*t2+t)*ma.y+(-2*t3+3*t2)*b.y+(t3-t2)*mb.y};
+        };
+        const crossing=(a,b,u)=>{
+          const tangent={x:0,y:(b.y-event.y)*1.7};
+          if(u<.5)return hermite(a,event,{x:event.x-a.x,y:event.y-a.y},
+            {x:tangent.x/2,y:tangent.y/2},u*2);
+          return hermite(event,b,{x:tangent.x/2,y:tangent.y/2},
+            {x:b.x-event.x,y:b.y-event.y},u*2-1);
+        };
+        // New scalar red starts behind its green partner, then slides out.
+        drawing.insertBefore(scene.next.get('scalar-red').el,scene.old.get('scalar-green').el);
         return raw => {
           const t=clamp(raw);
-          if(t===0||t===1) {scene.exact(t===1);return;}
+          if(t===0||t===1){scene.exact(t===1);return;}
           scene.clear();
-          const u=ease(t), before=t<=.5, localTime=ease(before?2*t:2*t-1);
+          const u=ease(t), before=u<.5, after=clamp(2*u-1);
           const poses=new Map();
-          for(const key of new Set([...oldNodes.keys(),...newNodes.keys()])) {
-            const a=oldNodes.get(key),b=newNodes.get(key);
-            if(key==='green-unit'||key==='red-unit') {
-              poses.set(key,{center:point(a.center,b.center,u),radius:1});
-            } else if(key==='green-extra') {
-              // This spider merges at the central event, not into another component.
-              poses.set(key,{center:point(a.center,event,ease(clamp(2*t))),
-                radius:1-ease(clamp((t-.40)/.10))});
-            } else {
-              poses.set(key,{center:before?point(a.center,event,localTime):
-                point(event,b.center,localTime),radius:1});
-            }
+          for(const key of ['green-unit','red-unit','scalar-green'])
+            poses.set(key,point(oldNodes.get(key).center,newNodes.get(key).center,u));
+          for(const key of ['green','green-extra','red','scalar-red']) {
+            const colour=key.startsWith('green')?'green':'red';
+            poses.set(key,crossing(oldNodes.get(key).center,newNodes.get(colour).center,u));
           }
           for(const [aKey,bKey,reverse] of outer) {
             const a=oldEdges.get(aKey),b=newEdges.get(bKey);
             const bp=reverse?[...b.points].reverse():b.points;
             const bEnds=reverse?[...b.ends].reverse():b.ends;
             const pts=interpolate(a.points,bp,u);
-            const tips=[0,1].map(i=>{
-              const key=before?a.ends[i]:bEnds[i];
-              return poses.get(key)?.center || pts[i?pts.length-1:0];
-            });
+            const tips=[0,1].map(i=>poses.get((before?a.ends:bEnds)[i])||pts[i?pts.length-1:0]);
             put(scene.old.get(aKey).el,attached(pts,tips[0],tips[1]));
           }
           if(before) {
             for(const key of internalOld) {
-              const a=oldEdges.get(key),pts=a.points.map(p=>point(p,event,localTime));
-              put(scene.old.get(key).el,attached(pts,poses.get(a.ends[0]).center,poses.get(a.ends[1]).center));
+              const a=oldEdges.get(key);
+              const pts=a.points.map(p=>point(p,event,2*u));
+              put(scene.old.get(key).el,attached(pts,poses.get(a.ends[0]),poses.get(a.ends[1])));
             }
           } else {
-            for(const key of internalNew) {
-              const b=newEdges.get(key),pts=b.points.map(p=>point(event,p,localTime));
-              put(scene.next.get(key).el,attached(pts,poses.get(b.ends[0]).center,poses.get(b.ends[1]).center));
-            }
+            const b=newEdges.get('green--red#0');
+            put(scene.next.get(b.key).el,attached(b.points,poses.get(b.ends[0]),poses.get(b.ends[1])));
+            const sg=poses.get('scalar-green');
+            const sr=point(sg,newNodes.get('scalar-red').center,after);
+            const scalar=newEdges.get('scalar-green--scalar-red#0');
+            put(scene.next.get(scalar.key).el,attached(scalar.points,sr,sg));
+            put(scene.next.get('scalar-red').el,scaleShape(newNodes.get('scalar-red'),sr),true);
           }
-          for(const [key,p] of poses) {
-            if(p.radius===0) continue;
-            const q=scene.old.get(key)||scene.next.get(key);
-            put(q.el,scaleShape(q.item,p.center,p.radius),true);
+          for(const key of ['green-unit','red-unit','scalar-green','green','red',
+              ...(before?['green-extra','scalar-red']:[])])
+            put(scene.old.get(key).el,scaleShape(oldNodes.get(key),poses.get(key)),true);
+        };
+      }
+
+      // Copy by transporting a full-size red state along the incident wire.
+      // At contact the two copies coincide; they then travel along the two
+      // outgoing wires. No red spider shrinks away or reappears at a new site.
+      if(index === 3) {
+        const scene=endpointScene();
+        const whole=e=>attached(e.points,
+          oldNodes.get(e.ends[0])?.center||e.points[0],
+          oldNodes.get(e.ends[1])?.center||e.points.at(-1));
+        const nextWhole=e=>attached(e.points,
+          newNodes.get(e.ends[0])?.center||e.points[0],
+          newNodes.get(e.ends[1])?.center||e.points.at(-1));
+        const incoming=resample([...whole(oldEdges.get('green--red-unit#0'))].reverse());
+        const upper=resample([...whole(oldEdges.get('green--red#0'))].reverse());
+        const lower=resample([...whole(oldEdges.get('green--green-split#0')),
+          ...whole(oldEdges.get('bottom--green-split#0')).slice(1)]);
+        // Once the green identity disappears, gently round its former join.
+        // Endpoints stay fixed, so rounding never detaches a wire from a spider.
+        let roundedLower=lower.map(xy);
+        for(let pass=0;pass<8;pass++)roundedLower=roundedLower.map((p,i,a)=>
+          i===0||i===a.length-1?p:{x:(a[i-1].x+2*p.x+a[i+1].x)/4,
+            y:(a[i-1].y+2*p.y+a[i+1].y)/4});
+        const upperEnd=resample(nextWhole(newEdges.get('red--red-copy#0')));
+        const lowerEnd=resample([...nextWhole(newEdges.get('bend--red-unit#0')),
+          ...nextWhole(newEdges.get('bend--bottom#0')).slice(1)]);
+        const at=(points,u)=>{
+          const f=clamp(u)*(points.length-1),i=Math.min(points.length-2,Math.floor(f));
+          return point(points[i],points[i+1],f-i);
+        };
+        const tail=(points,u)=>Array.from({length:41},(_,i)=>at(points,u+(1-u)*i/40));
+        // Keep the incoming red in front as it passes over the green copy site.
+        drawing.appendChild(scene.old.get('red-unit').el);
+        const contact=.43;
+        return raw => {
+          const t=clamp(raw);
+          if(t===0||t===1){scene.exact(t===1);return;}
+          scene.clear();
+          const u=ease(t);
+          if(u<contact) {
+            for(const q of scene.old.values()){attrs(q.el,q.item.attrs);q.el.style.display='';}
+            const travel=u/contact, remaining=tail(incoming,travel);
+            put(scene.old.get('green--red-unit#0').el,remaining);
+            put(scene.old.get('red-unit').el,scaleShape(oldNodes.get('red-unit'),remaining[0]),true);
+            return;
+          }
+          const v=(u-contact)/(1-contact), relax=ease(clamp((v-.18)/.82));
+          const up=interpolate(tail(upper,.5*v),upperEnd,relax);
+          const lowerCurve=interpolate(lower,roundedLower,ease(clamp(v/.2)));
+          const down=interpolate(tail(lowerCurve,.5*v),lowerEnd,relax);
+          put(scene.next.get('red--red-copy#0').el,up);
+          // One unbroken curved tail passes through the former identity site.
+          put(scene.next.get('bend--red-unit#0').el,down);
+          for(const key of ['green-unit--red#0','red--top#0']) {
+            const a=oldEdges.get(key),b=newEdges.get(key);
+            put(scene.old.get(key).el,interpolate(a.points,b.points,relax));
+          }
+          for(const key of ['red','green-unit'])
+            put(scene.old.get(key).el,scaleShape(oldNodes.get(key),
+              point(oldNodes.get(key).center,newNodes.get(key).center,relax)),true);
+          put(scene.next.get('red-copy').el,scaleShape(newNodes.get('red-copy'),up[0]),true);
+          put(scene.old.get('red-unit').el,scaleShape(oldNodes.get('red-unit'),down[0]),true);
+          // Remove the two-legged green identity locally, before its wire bends.
+          const identityRadius=1-ease(clamp(v/.18));
+          if(identityRadius>0)put(scene.old.get('green-split').el,
+            scaleShape(oldNodes.get('green-split'),oldNodes.get('green-split').center,identityRadius),true);
+          // B1 consumes the separate normalization scalar at this same rewrite.
+          // Contract only that component, never its wires across the main graph.
+          const shrink=1-ease(clamp(v/.62));
+          if(shrink>0){
+            const g=oldNodes.get('scalar-green'),r=oldNodes.get('scalar-red');
+            const c=midpoint(g.center,r.center),gc=point(c,g.center,shrink),rc=point(c,r.center,shrink);
+            put(scene.old.get('scalar-green--scalar-red#0').el,
+              attached(oldEdges.get('scalar-green--scalar-red#0').points,rc,gc));
+            put(scene.old.get('scalar-green').el,scaleShape(g,gc,shrink),true);
+            put(scene.old.get('scalar-red').el,scaleShape(r,rc,shrink),true);
           }
         };
       }
-    
+
       // This branch has two independent connected components. In particular, the
       // upper red spiders must never be identified with the separate lower red unit.
       if(index === 4) {
@@ -297,53 +389,19 @@
         };
       }
     
-      // Rewrite-local anchors, never a nearest-colour node in another component.
-      const rewriteCenter = index===3 ? local('green') :
-        midpoint(local('red'),local('green'));
-      function anchor(key, side) {
-        if(index===3) {
-          if(key==='green-split') return local('green-split'); // delete this identity in place
-          // The scalar pair and green copy node are consumed at the copying site;
-          // the second red unit is produced there, before the two copies separate.
-          if(['green','scalar-green','scalar-red','red-copy'].includes(key)) return local('green');
-        }
-        if(index===2 && key==='green-split') return local('green');
-        if(index===0) {
-          if(['green-extra','green-unit'].includes(key)) return local('green');
-          if(['red-unit','scalar-red'].includes(key)) return local('red');
-        }
-        return xy(rewriteCenter);
-      }
+      // The remaining move is the backwards green-spider fusion: split one
+      // green spider along its existing output, retaining every other component.
+      const rewriteCenter=midpoint(local('red'),local('green'));
+      const anchor=key=>key==='green-split'?local('green'):xy(rewriteCenter);
       function pose(key,t) {
-        const a=oldNodes.get(key), b=newNodes.get(key);
-        if(a&&b) {
-          if(index===3 && key==='red-unit') {
-            const c=local('green');
-            return {center:t<=.5 ? point(a.center,c,ease(2*t)) :
-              point(c,b.center,ease(2*t-1)),
-              radius:t<=.5 ? 1-ease(2*t) : ease(2*t-1)};
-          }
-          return {center:point(a.center,b.center,ease(t)),radius:1};
-        }
-        if(a) {
-          const u=ease(clamp(2*t));
-          return {center:point(a.center,anchor(key,'old'),u),radius:1-u};
-        }
-        if(b) {
-          const u=ease(clamp(2*t-1));
-          return {center:point(anchor(key,'new'),b.center,u),radius:u};
-        }
-        return null; // unmarked boundary or bend point
+        const a=oldNodes.get(key),b=newNodes.get(key);
+        if(a&&b)return {center:point(a.center,b.center,ease(t)),radius:1};
+        if(a){const u=ease(clamp(2*t));return {center:point(a.center,anchor(key),u),radius:1-u};}
+        if(b){const u=ease(clamp(2*t-1));return {center:point(anchor(key),b.center,u),radius:u};}
+        return null;
       }
-      const edgeAliases = index===2 ? {
-        'bottom--green#0':'bottom--green-split#0'
-      } : index===3 ? {
-        'green--green-split#0':'bend--red-unit#0',
-        'bottom--green-split#0':'bend--bottom#0',
-        'green--red#0':'red--red-copy#0'
-      } : {};
-      const endpointAliases = index===2 ? {'green':'green-split'} :
-        index===3 ? {'green-split':'bend'} : {};
+      const edgeAliases={'bottom--green#0':'bottom--green-split#0'};
+      const endpointAliases={'green':'green-split'};
       const used=new Set();
       function addPair(a,b,family) {
         let bPoints=b?.points, bEnds=b?.ends;
@@ -425,10 +483,10 @@
       function tick(now){
         if(token!==generation)return;
         const elapsed=now-start;
-        if(elapsed>=5000){show(5);box.dataset.hopfRunning='false';raf=0;return;}
-        const index=Math.min(4,Math.floor(elapsed/1000)),phase=elapsed%1000;
+        if(elapsed>=duration){show(5);box.dataset.hopfRunning='false';raf=0;return;}
+        const {index,t}=phaseAt(elapsed);
         if(index!==previous){show(index);tween=null;previous=index;box.dataset.hopfStage=index;}
-        if(phase>=200){if(!tween)tween=prepare(index);tween((phase-200)/800);}
+        if(t>0){if(!tween)tween=prepare(index);tween(t);}
         raf=requestAnimationFrame(tick);
       }
       raf=requestAnimationFrame(tick);
@@ -442,11 +500,11 @@
     // Deterministic timeline inspection uses the identical rewrite functions.
     function seek(elapsed){
       stop();setRhs(false);
-      if(elapsed>=5000){show(states.length-1);return;}
-      const index=Math.min(4,Math.floor(Math.max(0,elapsed)/1000)),phase=Math.max(0,elapsed)%1000;
-      show(index);if(phase>=200)prepare(index)((phase-200)/800);
+      if(elapsed>=duration){show(states.length-1);return;}
+      const {index,t}=phaseAt(Math.max(0,elapsed));
+      show(index);if(t>0)prepare(index)(t);
     }
-    const result={box,play,reset,finish,sync,seek,show:index=>{stop();setRhs(false);show(index);},get stage(){return Number(box.dataset.hopfStage)}};
+    const result={box,play,reset,finish,sync,seek,duration,timing,show:index=>{stop();setRhs(false);show(index);},get stage(){return Number(box.dataset.hopfStage)}};
     controllers.set(box,result);return result;
   }
   function init(){
