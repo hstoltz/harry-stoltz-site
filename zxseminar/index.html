@@ -1365,7 +1365,52 @@ body.clean .reveal #continuous.feedback55-batch2-characters .f55-characters-narr
  margin:0;padding:0;border:0;box-shadow:none;
 }
 .reveal #why [data-hopf-animation]>svg {position:relative;pointer-events:none;}
+
+/* Paper screenshots and thesis placeholder; shadow matches Future work. */
+.reveal #based-on .content {justify-content:flex-start;}
+.reveal #based-on .based-on-grid {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:30px;width:100%;margin-top:110px;align-items:start;
+}
+.reveal #based-on .based-on-preview,
+.reveal #based-on .based-on-thesis {
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:188px;box-sizing:border-box;
+  box-shadow:0 10px 30px rgba(0,0,0,.18),0 2px 8px rgba(0,0,0,.08);
+}
+.reveal #based-on .based-on-preview {background:white;line-height:0;}
+.reveal #based-on .based-on-preview img {
+  display:block;width:100%;height:100%;max-width:100%;max-height:100%;
+  object-fit:contain;margin:0;border:0;box-shadow:none;
+}
+.reveal #based-on .based-on-preview:focus-visible {outline:3px solid #0f886e;outline-offset:6px;}
+.reveal #based-on .based-on-title {
+  margin-top:26px;min-height:93.6px;font-size:24px;line-height:1.3;font-weight:600;
+}
+.reveal #based-on .based-on-authors {margin-top:10px;font-size:20px;line-height:1.4;}
+.reveal #based-on .based-on-thesis {background:#e3e3e3;font-size:27px;line-height:1.4;}
 </style><meta name="description" content="Harry K. Stoltz — Minimality in the Stabilizer and Universal Fragments of the ZX Calculus"></head><body class="clean"><div class="reveal"><div class="slides"><section id="title" class="title-slide no-title"><div class="content"><h1>Minimality in the<br>Stabilizer &amp; Universal<br>Fragments of the ZX Calculus</h1><p class="author">Harry K. Stoltz</p><div class="logos"><div class="nyu-block"><img src="images/nyu-block.png" alt="NYU"></div><img src="images/cqts-site.jpg" alt="CQTS"></div></div></section>
+<section id="based-on" class="based-on-slide has-title"><h2>This talk is based on...</h2><div class="content"><div class="based-on-grid">
+<div class="based-on-paper">
+<a class="based-on-preview" href="https://arxiv.org/abs/2606.12383" target="_blank" rel="noopener" aria-label="Read Minimality of the Stabilizer ZX Calculus on arXiv">
+<img src="images/papers/stabilizer-screenshot.png" alt="Title page of Minimality of the stabilizer ZX calculus by Harry K. Stoltz">
+</a>
+<p class="based-on-title">Minimality of the<br>Stabilizer ZX Calculus</p>
+<p class="based-on-authors">Harry K. Stoltz</p>
+</div>
+<div class="based-on-paper">
+<a class="based-on-preview" href="https://arxiv.org/abs/2608.14872" target="_blank" rel="noopener" aria-label="Read Minimality of the Pure Qubit ZX Calculus on arXiv">
+<img src="images/papers/pure-qubit-screenshot.png" alt="Title page of Minimality of the Pure Qubit ZX Calculus by Harry K. Stoltz and Renaud Vilmart">
+</a>
+<p class="based-on-title">Minimality of the<br>Pure Qubit ZX Calculus</p>
+<p class="based-on-authors">Harry K. Stoltz<br>and Renaud Vilmart</p>
+</div>
+<div class="based-on-thesis-paper">
+<div class="based-on-thesis">Upcoming</div>
+<p class="based-on-title">Master’s thesis</p>
+<p class="based-on-authors">Harry K. Stoltz</p>
+</div>
+</div></div></section>
 <section id="informal" class=" has-title"><h2>An informal view…</h2><div class="content"><p class="informal-intro">We view monoidal categories as a collection of generators \(\mathcal G\) and relations \(\mathcal R\):</p><div class="generators-relations"><img class="diagram" src="svgcache/early-generators-relations.svg" style="width:845px" alt="early generators relations"></div><p class="spoken " aria-hidden="true" style="display: none !important;"></p><p class="composition-intro">…where diagrams are built from the generators through two kinds of composition:</p><div class="composition-columns"><div><p class="composition-label">• Sequentially:</p><img class="diagram" src="svgcache/v3-composition-sequential.svg" style="width:440px" alt="v3 composition sequential"></div><div><p class="composition-label">• In parallel:</p><img class="diagram" src="svgcache/v3-composition-spatial.svg" style="width:440px" alt="Parallel composition"></div></div></div></section>
 <section id="presentation" class=" has-title"><h2>Monoidal categories</h2><div class="content"><p class="spoken " aria-hidden="true" style="width: 912px !important; height: 30.7969px !important; min-height: 30.7969px !important; box-sizing: border-box !important;"></p><p class=""><b>Theorem.</b> Every monoidal category \(\mathcal C\) admits<br>a presentation of generators \(\mathcal G\) and relations \(\mathcal R\):</p><div class="math ">\[\mathcal C=\langle\mathcal G\mid\mathcal R\rangle\]</div><p class="presentation-reference"><a href="https://doi.org/10.1016/0001-8708(91)90003-P">Joyal–Street (1991)</a>, <a href="https://www.mathstat.dal.ca/~selinger/papers/graphical.pdf#page=13">Selinger (2011, §3.1)</a></p><p class="spoken " aria-hidden="true" style="width: 912px !important; height: 30.7969px !important; min-height: 30.7969px !important; box-sizing: border-box !important;"></p><p class="spoken presentation-new-note" aria-hidden="true" style="display: none !important;"></p><p class="spoken optional-spoken" aria-hidden="true" style="width: 912px !important; height: 25.1875px !important; min-height: 25.1875px !important; box-sizing: border-box !important;"></p></div></section>
 <section id="interpretation" class=" has-title"><h2>Interpretation</h2><div class="content"><p class="spoken " aria-hidden="true" style="width: 912px !important; height: 85.0312px !important; min-height: 85.0312px !important; box-sizing: border-box !important;"></p><div class="math functor">\[\llbracket-\rrbracket:\langle\mathcal G\mid\mathcal R\rangle\longrightarrow\mathcal C\]</div><p class="interpretation-inductive-intro">Defined inductively by:</p><div class="row interpretation-laws"><div class="math tiny-math">\[\llbracket D_2\circ D_1\rrbracket=\llbracket D_2\rrbracket\circ\llbracket D_1\rrbracket\]</div><div class="math tiny-math">\[\llbracket D_2\otimes D_1\rrbracket=\llbracket D_2\rrbracket\otimes\llbracket D_1\rrbracket\]</div></div><div class="percolating-matrix"><img class="diagram" src="svgcache/v7-early-generator-dot-matrices.svg" style="width:887px" alt="v7 early generator dot matrices"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="325.572pt" height="82.805pt" viewBox="0 0 325.572 82.805" class="percolating-matrix-live" aria-hidden="true" focusable="false">
