@@ -86,7 +86,8 @@
 .reveal #title .logos{align-items:flex-end;margin-top:58px;padding:0 28px;box-sizing:border-box;}
 .reveal .nyu-block{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
 .reveal #title .logos .nyu-block img{width:258px;max-height:none;}
-.reveal #title .logos>img{width:325px;max-height:160px;}
+/* CQTS artwork ends at row 483 of its 548px transparent image; align its ink to NYU. */
+.reveal #title .logos>img{width:325px;max-height:160px;transform:translateY(calc(100% * 65 / 548));}
 .reveal #informal .content{gap:10px;justify-content:flex-start;}
 .reveal #informal .spoken{font-size:20px;line-height:1.32;}
 .reveal #informal .informal-intro{font-size:22px;line-height:1.3;text-align:left;align-self:flex-start;}
