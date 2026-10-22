@@ -1,0 +1,186 @@
+/* Matches the current ZX seminar's 960 × 700 canvas, fonts and spacing. */
+.reveal .slides section.notes-slide{height:700px;box-sizing:border-box;padding:28px 24px 22px;display:flex!important;flex-direction:column;text-align:left;}
+.reveal .slides section.notes-slide:not(.present){pointer-events:none;}
+.reveal h2{font-size:42px;font-weight:600;line-height:1.18;margin:0 0 20px;text-align:left;flex:0 0 auto;}
+.reveal .long-heading h2{font-size:36px;}
+.reveal .content{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;font-size:28px;box-sizing:border-box;width:100%;}
+.reveal .content p{margin:0;line-height:1.4;text-align:left;width:100%;}
+.reveal .content .statement-label{font-size:25px;}
+.reveal .math{font-size:28px;max-width:100%;margin:0;flex:0 0 auto;}
+.reveal .katex-display{margin:.22em 0;}
+.reveal .katex{font-size:1.08em;white-space:nowrap;}
+.reveal .figure{margin:0;flex:0 0 auto;line-height:0;max-width:100%;text-align:center;}
+.reveal img.diagram{display:block;margin:0;max-width:none;max-height:none;object-fit:contain;border:0;box-shadow:none;background:transparent;}
+.reveal ol{display:block;width:100%;margin:0;padding-left:1.3em;box-sizing:border-box;line-height:1.4;}
+.reveal li{padding-left:4px;margin:0 0 18px;}
+.reveal li:last-child{margin-bottom:0;}
+.reveal .qed{width:100%;text-align:right;font-size:23px;line-height:1;margin-top:0;}
+.reveal .title-slide .content{justify-content:center;gap:0;text-align:center;}
+.reveal h1{font-size:51px;font-weight:600;line-height:1.27;margin:35px 0;text-align:center;}
+.reveal .title-slide p.author{font-size:31px;font-style:italic;text-align:center;}
+/* Review frames removed; transparent borders retain the approved spacing. */
+.reveal .approved{border:2px solid transparent;padding:18px 16px;box-sizing:border-box;width:100%;display:flex;flex-direction:column;align-items:center;gap:22px;}
+.reveal .field-columns{display:grid;grid-template-columns:minmax(0,1fr) 264px;gap:18px;align-items:center;width:100%;}
+.reveal .field-columns ol{font-size:24px;}
+.reveal .field-columns li{margin-bottom:17px;}
+.reveal .bit-vector{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.reveal .bit-vector p{text-align:center;font-size:25px;}
+.reveal .generators-slide .content{font-size:25px;gap:12px;}
+.reveal .generators-slide .content p{line-height:1.35;}
+.reveal .relations-slide .content{gap:24px;}
+.reveal .gpf-slide .content{gap:13px;font-size:26px;}
+.reveal .gpf-slide ol{font-size:26px;}
+.reveal .gpf-slide li{margin-bottom:8px;}
+.reveal .gpf-slide .figure{align-self:center;}
+.reveal .row-proof-slide .content{gap:12px;font-size:25px;}
+.reveal .row-proof-slide .content p{line-height:1.35;}
+.reveal .row-proof-slide .qed{font-size:20px;}
+.reveal .algorithm-slide .content{align-items:stretch;gap:25px;}
+.reveal .algorithm-slide ol{font-size:28px;}
+.reveal .algorithm-slide li{margin-bottom:24px;}
+.reveal .controls,.slide-footer{display:none!important;}
+.reveal .slide-number{display:block;background:transparent;color:#0f886e;font-family:"Open Sans",sans-serif;font-size:14px;right:12px;bottom:8px;}
+.reveal .progress{display:block;height:3px;color:#0f886e;}
+.reveal .print-slide-counter{position:absolute;right:12px;bottom:8px;color:#0f886e;font-family:"Open Sans",sans-serif;font-size:14px;line-height:1;}
+.reveal .print-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,0,.2);}
+.reveal .print-progress span{display:block;height:100%;background:#0f886e;}
+
+/* First slide-by-slide review: full statements and their proofs share a page. */
+.reveal .title-slide h1{margin:0 0 38px;}
+.reveal .review-box{width:100%;box-sizing:border-box;padding:16px 18px;display:flex;flex-direction:column;align-items:center;gap:16px;border:2px solid transparent;}
+.reveal .parity-definitions .content{gap:25px;}
+.reveal .cnot-combined .content{font-size:25px;gap:14px;}
+.reveal .cnot-combined .content p{line-height:1.32;}
+.reveal .cnot-interpretations{display:flex;justify-content:space-evenly;align-items:center;width:100%;gap:40px;}
+.reveal .identity-block{width:100%;display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:12px;font-size:24px;}
+.reveal .statement-with-proof .content{gap:15px;}
+.reveal .statement-with-proof .qed{margin-top:-8px;}
+.reveal .elementary-slide .content{font-size:24px;gap:10px;}
+.reveal .elementary-slide .content p{line-height:1.3;}
+.reveal .elementary-top{display:grid;grid-template-columns:260px minmax(0,1fr);gap:26px;width:100%;align-items:center;}
+.reveal .elementary-top>div:first-child{display:flex;justify-content:center;}
+.reveal .elementary-matrix{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.reveal .elementary-matrix .math{font-size:23px;}
+.reveal .elementary-slide .math{font-size:24px;}
+.reveal .example-line{display:flex;align-items:center;justify-content:center;gap:20px;width:100%;}
+.reveal .example-line .statement-label{width:auto;}
+.reveal .synthesis-slide .content{font-size:21.5px;gap:0;}
+.reveal .synthesis-slide .review-box{gap:9px;padding:14px 16px;}
+.reveal .synthesis-slide .content p,.reveal .synthesis-slide ol{line-height:1.28;}
+.reveal .synthesis-slide .statement-label{font-size:23px;}
+.reveal .synthesis-slide li{margin-bottom:8px;}
+.reveal .synthesis-slide .qed{font-size:17px;}
+.reveal .generators-slide .content{font-size:26px;gap:16px;}
+.reveal .generators-slide p.basis-convention{text-align:center;font-size:24px;}
+.reveal .unitary-slide .content{font-size:26px;gap:16px;}
+.reveal .unitary-slide .statement-label{margin-top:8px;}
+.reveal .pnf-slide .content{gap:25px;}
+.reveal .adjacency-slide .content{font-size:27px;gap:22px;}
+.reveal .two-color-proof .content{font-size:24px;gap:12px;}
+.reveal .two-color-proof p,.reveal .two-color-proof ol{line-height:1.3;}
+.reveal .two-color-proof li{margin-bottom:8px;}
+.reveal .two-color-proof li .figure{margin:14px auto 0;}
+.reveal .two-color-proof .qed{font-size:18px;}
+.reveal .algorithm-flow{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,auto);gap:48px 16px;width:100%;}
+.reveal .flow-stage{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.reveal .flow-stage .statement-label{text-align:center;font-size:19px;}
+.reveal .flow-stage.stage-3{grid-column:3;grid-row:2;}
+.reveal .flow-stage.stage-4{grid-column:2;grid-row:2;}
+.reveal .flow-arrow{position:absolute;font-size:28px;line-height:1;transform:translate(-50%,-50%);}
+.reveal .arrow-01{left:33%;top:25%;}
+.reveal .arrow-12{left:67%;top:25%;}
+.reveal .arrow-23{left:84%;top:50%;}
+.reveal .arrow-34{left:67%;top:77%;}
+.reveal .algorithm-walkthrough h2{font-size:38px;}
+.reveal .algorithm-proof-columns{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;width:100%;}
+.reveal .algorithm-proof-columns>div{display:flex;flex-direction:column;gap:14px;}
+.reveal .algorithm-proof-slide .content{font-size:21px;}
+.reveal .algorithm-proof-slide .content p,.reveal .algorithm-proof-slide ol,.reveal .algorithm-proof-slide ul{line-height:1.32;}
+.reveal .algorithm-proof-slide h2{font-size:37px;}
+.reveal .algorithm-proof-slide .statement-label{font-size:23px;}
+.reveal .algorithm-proof-slide li{margin-bottom:12px;padding-left:0;}
+.reveal .algorithm-proof-slide ul{padding-left:1.1em;margin:0;}
+.reveal .algorithm-reference{padding-right:18px;border-right:1px solid #ddd;}
+.reveal .algorithm-justification .qed{font-size:17px;}
+.reveal .obstruction-slide .content{font-size:24px;gap:8px;}
+.reveal .obstruction-slide .content p{line-height:1.3;}
+.reveal .obstruction-stack{display:flex;flex-direction:column;gap:14px;width:100%;}
+.reveal .obstruction-stack>div{display:flex;flex-direction:column;gap:8px;font-size:22px;}
+.reveal .obstruction-stack .math{font-size:22px;}
+.reveal .obstruction-slide .qed{font-size:18px;}
+
+/* Second review: general graphical proof, preserving every other layout. */
+.reveal .algorithm-general-proof .content{font-size:23px;gap:10px;}
+.reveal .algorithm-general-proof .content p{line-height:1.3;}
+.reveal .algorithm-general-proof .statement-label{font-size:24px;}
+.reveal .algorithm-general-proof .math{font-size:25px;}
+.reveal .general-proof-cases{display:flex;justify-content:center;align-items:center;gap:32px;width:100%;}
+.reveal .general-boundaries .content{font-size:22px;gap:12px;}
+.reveal .general-boundaries .qed{font-size:18px;}
+
+/* One canonical Algorithm 2 derivation, enlarged without redrawing its stages. */
+.reveal .algorithm-chain .content{font-size:22px;gap:12px;}
+.reveal .algorithm-chain .content p{line-height:1.28;}
+.reveal .algorithm-chain .statement-label{font-size:25px;}
+.reveal .algorithm-chain .chain-view{margin:0 auto;flex-shrink:0;}
+.reveal .algorithm-chain .chain-view img{max-width:none;}
+.reveal .algorithm-chain .content .math{font-size:inherit;}
+.reveal .chain-overview .content{gap:22px;}
+.reveal .chain-return .content{gap:8px;font-size:21px;}
+.reveal .chain-exit .content{gap:6px;font-size:21px;}
+
+/* Fourth review: carry the established statement/proof layout through the payoff. */
+.reveal .two-colour-example .content{gap:26px;}
+.reveal .two-colour-example .example-line{gap:28px;}
+.reveal .tail-row-first .content{gap:18px;font-size:26px;}
+.reveal .tail-row-second .content{gap:26px;font-size:26px;}
+.reveal .tail-extraction .content{gap:8px;font-size:21px;}
+.reveal .tail-extraction .content p,.reveal .tail-extraction ol{line-height:1.27;}
+.reveal .tail-extraction .statement-label{font-size:23px;}
+.reveal .tail-extraction li{margin-bottom:10px;}
+.reveal .tail-extraction li .figure{margin:6px auto;}
+.reveal .tail-extraction .math{font-size:23px;}
+.reveal .tail-extraction .qed{font-size:18px;}
+.reveal .tail-extraction-example .content{gap:30px;}
+.reveal .tail-correspondence .content{gap:19px;font-size:26px;}
+.reveal .tail-correspondence li{margin-bottom:16px;}
+.reveal .tail-correspondence .math{font-size:28px;}
+.reveal .tail-universality .content{gap:22px;font-size:26px;}
+
+/* Fifth review: the remaining short statements and proofs share one slide. */
+.reveal .parity-unitary-proof .content{font-size:26px;gap:14px;}
+.reveal .parity-unitary-proof .content p{line-height:1.35;}
+
+/* Sixth review: one readable square size and one complete row-addition chain. */
+.reveal .slides .qed{font-size:0;line-height:18px;height:18px;min-height:18px;flex-shrink:0;}
+.reveal .slides .qed::after{content:"";display:inline-block;width:18px;height:18px;background:#000;vertical-align:top;}
+.reveal .row-addition-combined .content{font-size:26px;gap:18px;}
+.reveal .row-addition-chain{display:flex;justify-content:center;align-items:flex-start;gap:8px;width:100%;margin:8px 0;flex-shrink:0;}
+/* Match the equation baselines of the two source assets. */
+.reveal .row-addition-chain .figure:nth-child(2){margin-top:11.943px;}
+
+/* Parity maps and their matrices, with two corresponding examples. */
+.reveal .parity-definitions .content{gap:12px;}
+.reveal .parity-definitions .review-box{gap:6px;padding:8px 18px;}
+.reveal .parity-examples-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:8px;width:100%;align-items:center;justify-items:center;flex-shrink:0;}
+
+/* Book circuit example followed by its unitary action and original proposition. */
+.reveal .cnot-book-example .content{gap:24px;}
+.reveal .book-example-diagram{display:flex;align-items:center;justify-content:center;gap:24px;width:100%;}
+.reveal .book-equation-number{font-size:22px;}
+.reveal .cnot-book-example .statement-label{margin-top:12px;}
+
+/* Introduce elementary parity matrices with one concrete three-wire example. */
+.reveal .elementary-simple .content{gap:22px;}
+.reveal .elementary-simple .statement-label:nth-of-type(4){margin-top:8px;}
+
+/* Compare the CNOT algorithm with ordinary elimination below its steps. */
+.reveal .synthesis-slide .synthesis-differences{line-height:1.28;}
+.reveal .synthesis-slide .synthesis-differences li{margin-bottom:5px;}
+.reveal .synthesis-slide .synthesis-differences li:last-child{margin-bottom:0;}
+
+/* Show the reference URL separately from the comparison heading. */
+.reveal .synthesis-slide .content .gaussian-reference{text-align:center;font-size:18px;line-height:1.3;}
+
+/* Two-item schedule, using the deck's standard body typography. */
+.reveal .schedule-slide ul{width:100%;box-sizing:border-box;margin:0;padding-left:1.3em;line-height:1.4;}
