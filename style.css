@@ -31,6 +31,7 @@ body{
 /* custom link colors */
 .nav-about    { color:#d9534f; }  /* red   */
 .nav-pubs     { color:#5bc0de; }  /* blue  */
+.nav-talks    { color:#8956a8; }  /* purple */
 .nav-teaching { color:#5cb85c; }  /* green */
 .nav-notes    { color:#f0ad4e; }  /* orange*/
 .nav-projects { color:#f0ad4e; }  /* orange*/
@@ -127,6 +128,33 @@ body{
 .role-instructor{
   color:purple;
   font-weight:bold;
+}
+
+/* ---------- Talks and posters ---------- */
+.talks-page{
+  max-width:800px;
+  margin:auto;
+  padding:2em;
+  line-height:1.5;
+}
+
+.talk-entry{
+  margin:0 0 2em;
+}
+
+.talk-entry h3{
+  font-size:1.15em;
+  line-height:1.35;
+  margin-bottom:.4em;
+}
+
+.event-meta{
+  color:#555;
+  margin:.4em 0;
+}
+
+.resource-links{
+  margin:.6em 0;
 }
 
 @media (max-width:700px){
