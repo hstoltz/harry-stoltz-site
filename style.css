@@ -130,33 +130,6 @@ body{
   font-weight:bold;
 }
 
-/* ---------- Talks and posters ---------- */
-.talks-page{
-  max-width:800px;
-  margin:auto;
-  padding:2em;
-  line-height:1.5;
-}
-
-.talk-entry{
-  margin:0 0 2em;
-}
-
-.talk-entry h3{
-  font-size:1.15em;
-  line-height:1.35;
-  margin-bottom:.4em;
-}
-
-.event-meta{
-  color:#555;
-  margin:.4em 0;
-}
-
-.resource-links{
-  margin:.6em 0;
-}
-
 @media (max-width:700px){
   .navbar{
     flex-wrap:wrap;
