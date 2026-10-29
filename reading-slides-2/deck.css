@@ -120,3 +120,12 @@
 .reveal .interpretation-equation{display:flex;align-items:center;justify-content:center;gap:12px;}
 .reveal .interpretation-argument{display:flex;align-items:center;justify-content:center;gap:0;}
 .reveal .interpretation-argument>.math{line-height:1;}
+
+/* Schedule updates: preserve both supplied screenshots at their original aspect ratios. */
+.reveal .schedule-updates-slide .content { justify-content: center; }
+.reveal .schedule-updates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; width: 100%; align-items: start; }
+.reveal .schedule-update { display: flex; flex-direction: column; align-items: center; }
+.reveal .schedule-update-preview { width: 100%; height: 360px; display: flex; align-items: center; justify-content: center; line-height: 0; }
+.reveal .schedule-update-preview img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; margin: 0; border: 0; box-shadow: 0 10px 30px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08); }
+.reveal .schedule-update-preview:focus-visible { outline: 3px solid #0f886e; outline-offset: 6px; }
+.reveal .schedule-updates-slide .content .schedule-accepted { margin: 18px 0 0; text-align: center; font-weight: 700; }

@@ -38,3 +38,5 @@
 .reveal .statement-popup-close:focus-visible,
 .reveal a.statement-reference:focus-visible { outline: 2px solid #0f886e; outline-offset: 4px; }
 @media print { .reveal .statement-popup { display: none !important; } }
+
+.reveal h2 a.parity-title-link { color: inherit; }

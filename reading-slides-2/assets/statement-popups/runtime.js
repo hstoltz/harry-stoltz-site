@@ -19,7 +19,9 @@
   }
 
   function open(link) {
-    const source = document.getElementById(link.dataset.statementSource)?.querySelector('.content');
+    const source = link.dataset.statementTemplate
+      ? document.getElementById(link.dataset.statementTemplate)?.content
+      : document.getElementById(link.dataset.statementSource)?.querySelector('.content');
     if (!source) return;
     const statement = [];
     for (const child of source.children) {
@@ -38,7 +40,7 @@
   }
 
   document.addEventListener('click', event => {
-    const link = event.target.closest('a[data-statement-source]');
+    const link = event.target.closest('a[data-statement-source], a[data-statement-template]');
     if (!link) return;
     event.preventDefault();
     event.stopPropagation();
