@@ -1,0 +1,15 @@
+Completeness of Phase-free ZX
+Slides by Harry K. Stoltz.
+
+Book text and diagrams adapted from Aleks Kissinger and John van de Wetering,
+Picturing Quantum Software, Chapters 3 and 4, licensed CC BY-NC 4.0.
+https://zxcalc.github.io/book/html/main_htmlch4.html
+License: assets/book/LICENSE-CC-BY-NC-4.0.txt
+Book text and diagrams are adapted for this presentation, with additional examples and animations.
+Added or specialised statements are identified with an asterisk.
+
+Reveal.js: vendor/reveal/LICENSE
+Marked (embedded in Reveal's speaker-notes plugin): vendor/reveal/marked-LICENSE.md
+KaTeX: vendor/katex/LICENSE
+Quicksand: vendor/fonts/quicksand-OFL.txt
+Open Sans: vendor/fonts/opensans-OFL.txt

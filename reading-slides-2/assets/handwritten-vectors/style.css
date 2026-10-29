@@ -1,0 +1,36 @@
+.reveal .handwritten-vectors-slide .content{font-size:25px;gap:15px;}
+.reveal .handwritten-vectors-slide .fragment{transition:none!important;}
+.reveal .handwritten-vectors-slide .vector-general{display:flex;align-items:center;justify-content:center;gap:25px;width:100%;}
+.reveal .handwritten-vectors-slide .vector-general .math{font-size:28px;}
+.reveal .handwritten-vectors-slide .vector-general .vector-state-box{width:90px;height:109.327px;display:block;flex:none;}
+.reveal .handwritten-vectors-slide .vector-general img{width:130.983px;height:109.327px;display:block;border:0;margin:0;box-shadow:none;background:transparent;}
+.reveal .handwritten-vectors-slide .vector-description{width:100%;}
+.reveal .handwritten-vectors-slide .vector-description p+p{margin-top:8px;}
+.reveal .handwritten-vectors-slide .vectors-example{width:100%;display:flex;align-items:center;justify-content:center;gap:48px;position:relative;}
+.reveal .handwritten-vectors-slide .vectors-example-label{position:absolute;left:0;top:0;font-size:25px;}
+.reveal .handwritten-vectors-slide .vector-example-graph{width:224px;height:156px;overflow:visible;flex-shrink:0;}
+.reveal .handwritten-vectors-slide .vector-example-graph .book-vector-label{overflow:visible;}
+.reveal .handwritten-vectors-slide .vector-coordinate-stack{display:flex;flex-direction:column;gap:22px;}
+.reveal .handwritten-vectors-slide .vector-coordinate-row{display:flex;align-items:baseline;white-space:nowrap;font-size:27px;}
+.reveal .handwritten-vectors-slide .vector-coordinate-row .katex{font-size:1.08em;}
+.reveal .handwritten-vectors-slide .vector-coordinate-row .coordinate-separator{margin-right:6px;}
+.reveal .handwritten-vectors-slide .vector-coordinate-row .vector-lhs{margin-right:8px;}
+.reveal .handwritten-vectors-slide .vector-example-graph .edge{stroke:#000;stroke-width:.897;fill:none;transition:stroke .25s,stroke-width .25s;}
+.reveal .handwritten-vectors-slide .vector-example-graph .spider{stroke:#000;stroke-width:.897;transition:stroke .25s,stroke-width .25s;}
+.reveal .handwritten-vectors-slide .vector-example-graph .label{fill:#000;transition:fill .25s;}
+.reveal .handwritten-vectors-slide .vector-example-graph .focused{stroke:#0000ff;stroke-width:3.58659;}
+.reveal .handwritten-vectors-slide .vector-example-graph .spider.focused{stroke-width:2.68994;}
+.reveal .handwritten-vectors-slide .vector-example-graph .label.focused{fill:#0000ff;stroke:none;}
+.reveal .handwritten-vectors-slide .vector-example-graph .zero-check-guide{stroke:#bfbfbf;stroke-width:1.2;stroke-dasharray:.1 4;stroke-linecap:round;fill:none;}
+.reveal .handwritten-vectors-slide .vector-bit{color:#000;}
+.reveal .handwritten-vectors-slide .vector-bit[data-value="0"]{color:#bfbfbf;}
+.reveal .handwritten-vectors-slide:not(.vectors-finished) .vector-bit.current-fragment{color:#0000ff;}
+.print-pdf .vector-example-graph .focused{stroke:#000!important;stroke-width:.897!important;}
+.print-pdf .vector-example-graph .label.focused{fill:#000!important;stroke:none!important;}
+.print-pdf .handwritten-vectors-slide .vector-bit{color:#000!important;}
+.print-pdf .handwritten-vectors-slide .vector-bit[data-value="0"]{color:#bfbfbf!important;}
+.print-pdf .vector-example-graph .zero-check-guide{visibility:hidden!important;}
+@media (prefers-reduced-motion:reduce){.reveal .handwritten-vectors-slide .vector-example-graph *{transition:none!important;}}
+
+
+.reveal .handwritten-vectors-slide .vectors-clear-trigger{position:absolute;width:0;height:0;pointer-events:none;}

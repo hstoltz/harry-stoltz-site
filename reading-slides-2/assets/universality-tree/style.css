@@ -1,0 +1,21 @@
+/* The two directions from last week's CNOT results, in the existing slide shell. */
+.reveal .universality-tree-slide .content{justify-content:center;gap:0;}
+.reveal .universality-tree{position:relative;width:912px;height:566px;flex:0 0 auto;font-size:19px;line-height:1.32;}
+.reveal .universality-arrows{position:absolute;inset:0;width:912px;height:566px;overflow:visible;}
+.reveal .universality-arrows marker path{fill:none;stroke:#333;stroke-width:1.25;}
+.reveal .universality-box{position:absolute;box-sizing:border-box;border:1px solid #222;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:5px;}
+.reveal .universality-box>strong{font-size:20px;margin-bottom:3px;}
+.reveal .universality-box .katex{font-size:1.08em;}
+.reveal .universality-normal-support{left:0;top:0;width:275px;height:92px;font-size:18px;}
+.reveal .universality-extraction-support{left:637px;top:0;width:275px;height:92px;}
+.reveal .universality-normal{left:0;top:133px;width:275px;height:112px;}
+.reveal .universality-invertible{left:318.5px;top:133px;width:275px;height:112px;}
+.reveal .universality-extract{left:637px;top:133px;width:275px;height:112px;}
+.reveal .universality-theorem{left:0;top:285px;width:912px;height:85px;font-size:21px;gap:6px;}
+.reveal .universality-theorem>strong{font-size:21px;margin:0;}
+.reveal .universality-converse{position:absolute;left:0;top:388px;font-size:23px;}
+.reveal .universality-encoding{left:0;top:432px;width:245px;height:116px;font-size:20px;}
+.reveal .universality-conclusion{left:301px;top:414px;width:611px;height:152px;font-size:20px;padding:12px 18px;gap:7px;}
+.reveal .universality-conclusion>strong{font-size:21px;margin:0;}
+.reveal .universality-conclusion .math{font-size:25px;}
+.reveal .universality-conclusion .katex-display{margin:0;}

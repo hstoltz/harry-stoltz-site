@@ -1,0 +1,10 @@
+.reveal .hw-state-chain{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:188px;flex:none;}
+.reveal .hw-state-chain .math{font-size:28px;flex:none;}
+.reveal .hw-state-step{display:flex;align-items:center;gap:10px;flex:none;height:188px;}
+.reveal .hw-state-relation{width:28px;height:188px;position:relative;flex:none;}
+.reveal .hw-state-relation .math{position:absolute;top:76px;left:0;transform:translateY(-50%);}
+.reveal .hw-state-relation .katex-display{margin:0;}
+.reveal .hw-state-chain .hw-state-diagram{display:block;flex:none;margin:0;border:0;box-shadow:none;max-width:none;max-height:none;object-fit:contain;background:transparent;}
+.reveal .hw-state-chain svg text{font-family:KaTeX_Math,"Times New Roman",serif;}
+.reveal .states-slide .content{font-size:25px;gap:15px;}
+.reveal .states-slide .fragment{transition:none!important;}

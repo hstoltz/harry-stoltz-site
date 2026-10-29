@@ -1,0 +1,28 @@
+.reveal .nonunique-sketch-slide .content{gap:7px;font-size:25px;}
+.reveal .nonunique-sketch-slide .math{font-size:24px;}
+.reveal .nonunique-sketch-slide .katex-display{margin:0;}
+.reveal .nonunique-diagrams{display:flex;align-items:center;justify-content:center;gap:52px;width:100%;}
+.reveal .nonunique-diagram{display:flex;align-items:center;gap:10px;}
+.reveal .nonunique-vectors{position:relative;width:100%;display:flex;justify-content:center;align-items:center;}
+.reveal .nonunique-vectors>p{position:absolute;left:0;top:12px;width:auto;}
+.reveal .nonunique-state{width:100%;display:flex;flex-direction:column;gap:3px;}
+.reveal .nonunique-state-equation{display:grid;place-items:center;width:100%;}
+.reveal .nonunique-middle{display:grid;place-items:center;min-height:68px;width:100%;}
+.reveal .nonunique-middle>div{grid-area:1/1;}
+.reveal .nonunique-condensed{visibility:hidden;}
+.reveal .nonunique-sketch-slide.nonunique-is-condensed .nonunique-expanded{visibility:hidden;}
+.reveal .nonunique-sketch-slide.nonunique-is-condensed .nonunique-condensed{visibility:visible;}
+.reveal .nonunique-sketch-slide .content .nonunique-interesting{text-align:center;}
+.reveal .nonunique-sketch-slide .nonunique-trigger{position:absolute;width:0;height:0;pointer-events:none;transition:none!important;}
+/* Only the interpreted equation moves; both settled formulas remain original. */
+.reveal .nonunique-middle{position:relative;}
+.reveal .nonunique-middle>.nonunique-motion-layer{position:absolute;inset:0;visibility:hidden;pointer-events:none;}
+.reveal .nonunique-motion-piece{position:absolute;transform-origin:0 0;}
+.reveal .nonunique-sketch-slide.nonunique-moving .nonunique-expanded,
+.reveal .nonunique-sketch-slide.nonunique-moving .nonunique-condensed{visibility:hidden;}
+.reveal .nonunique-sketch-slide.nonunique-moving .nonunique-motion-layer{visibility:visible;}
+
+/* Click builds preserve every row's final position. */
+.reveal .nonunique-sketch-slide .fragment{transition:none!important;}
+.reveal .nonunique-sketch-slide .nonunique-label-trigger{position:absolute;width:0;height:0;pointer-events:none;}
+.reveal .nonunique-sketch-slide:not(.nonunique-has-span-label) .nonunique-brace-piece{visibility:hidden;}

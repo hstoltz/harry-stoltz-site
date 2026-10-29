@@ -1,0 +1,33 @@
+.reveal .duplicate-slide .content {gap:12px;font-size:25px;}
+.reveal .duplicate-proof-slide .content {gap:14px;font-size:25px;}
+.reveal .dup-context, .reveal .dup-move {margin:0;line-height:0;width:100%;display:flex;justify-content:center;}
+.reveal .dup-context > svg {width:620px;height:160px;overflow:visible;}
+.reveal .dup-move > svg {width:310px;height:170px;overflow:visible;}
+.reveal .dup-trigger {position:absolute!important;width:0;height:0;overflow:hidden;pointer-events:none;}
+.reveal .dup-chain {width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:22px 2px;margin-top:5px;}
+.reveal .dup-chain-step {display:flex;align-items:center;justify-content:center;min-width:0;transition:none!important;}
+.reveal .duplicate-proof-slide .fragment {transition:none!important;}
+.reveal .dup-chain-step > svg {display:block;flex:0 0 auto;width:230px;height:173px;overflow:visible;}
+.reveal .dup-relation {display:flex;flex-direction:column;align-items:center;justify-content:center;width:54px;flex:0 0 54px;font-size:29px;line-height:1.1;}
+.reveal .dup-rule {font-family:KaTeX_Main,serif;font-style:italic;font-size:17px;color:#0000ff;}
+.reveal .dup-empty-rule {height:19px;}
+.reveal .dup-relation .katex {font-size:1.05em;}
+.reveal .dup-native text {font-family:KaTeX_Main,"Times New Roman",serif;font-size:18px;fill:#000;}
+.reveal .dup-native .dup-var {font-family:KaTeX_Math,"Times New Roman",serif;font-style:italic;}
+.reveal .dup-native .dup-sub {font-size:12px;}
+.reveal .dup-native .dup-edge {fill:none;stroke:#000;stroke-width:.9;stroke-linecap:butt;}
+.reveal .dup-native .dup-node {stroke:#000;stroke-width:.9;}
+.reveal .dup-native .dup-node-union {stroke:#000;stroke-width:.9;}
+.reveal .dup-native .dup-dots {font-family:KaTeX_Main,serif;font-size:22px;}
+.reveal .duplicate-proof-slide .proof-continuation {font-size:23px;}
+.reveal .duplicate-proof-slide .dup-zero-case {font-size:21px;}
+@media (prefers-reduced-motion:reduce) {.reveal .dup-chain-step {transition:none!important;}}
+
+/* Book blue: row-op2.svg, at the approved 2.25 display scale. */
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-edge="0-0"],
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-edge="0-1"],
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-edge="2-0"],
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-edge="2-1"]{stroke:#00f;stroke-width:3.58659;}
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-node="0"],
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-node="2"],
+.reveal #dup-move-svg.dup-bipartite-focus [data-context-output]{stroke:#00f;stroke-width:2.68994;}

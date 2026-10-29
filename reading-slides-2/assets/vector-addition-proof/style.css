@@ -1,0 +1,8 @@
+/* Exact native row-op SVG extents; reveals must not move the settled chain. */
+.reveal .vector-proof-figure { position:relative; }
+.reveal .vector-proof-figure > svg { display:block; position:absolute;left:0;top:0;max-width:none; max-height:none; overflow:visible; }
+.reveal .vector-proof-figure .vap-source { position:absolute;left:0;top:0;pointer-events:none; }
+.reveal .vector-proof-figure [data-endpoint],
+.reveal .vector-proof-figure [data-relation] > g[clip-path] { display:none!important; }
+.reveal .vector-proof-figure .fragment { transition:none!important; }
+.reveal .vector-proof-figure [data-motion] { pointer-events:none; }

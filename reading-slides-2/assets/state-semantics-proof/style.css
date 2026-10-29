@@ -1,0 +1,23 @@
+/* One aligned derivation, continued across three consecutive slides. */
+.reveal .semantic-chain-slide .content{gap:16px;font-size:28px;}
+.reveal .semantic-chain-slide .math{font-size:28px;}
+.reveal .semantic-chain-slide .katex-display{margin:0;}
+.reveal .semantic-chain-slide .fragment{transition:none!important;}
+.reveal .sproof-chain{width:872px;max-width:100%;display:flex;flex-direction:column;gap:18px;}
+.reveal .sproof-row,.reveal .sproof-step{display:grid;grid-template-columns:248px 120px minmax(0,1fr);align-items:center;min-height:126px;width:100%;}
+.reveal .sproof-lhs{display:flex;align-items:center;justify-content:flex-end;}
+.reveal .sproof-opening>.sproof-step{grid-column:2 / 4;grid-template-columns:120px minmax(0,1fr);}
+.reveal .sproof-rhs{display:flex;align-items:center;justify-content:flex-start;gap:10px;}
+.reveal .sproof-semantic{display:flex;justify-content:center;align-items:center;gap:0;flex:0 0 auto;}
+.reveal .sproof-semantic>svg{display:block;flex:0 0 auto;overflow:visible;}
+.reveal .sproof-semantic>.figure{max-width:none;}
+.reveal .sproof-relation{position:relative;display:flex;align-items:center;justify-content:center;}
+.reveal .sproof-rule{position:absolute;bottom:calc(100% - 2px);font-family:KaTeX_Main,serif;font-size:17px;font-style:italic;white-space:nowrap;color:#0000ff;}
+.reveal .semantic-chain-expansion-slide .sproof-chain{gap:8px;}
+.reveal .semantic-chain-expansion-slide .sproof-step:last-child{min-height:86px;}
+.reveal .sproof-notation{width:100%;text-align:center;}
+.reveal .sproof-notation .math{font-size:23px;}
+.reveal .semantic-chain-finish-slide .sproof-chain{gap:12px;}
+.reveal .semantic-chain-finish-slide .sproof-row,.reveal .semantic-chain-finish-slide .sproof-step{min-height:78px;}
+.reveal .semantic-chain-finish-slide .sproof-step[data-fragment-index="0"]{min-height:116px;}
+.reveal .semantic-chain-finish-slide .qed{margin-top:4px;transform:translateY(-16px);}

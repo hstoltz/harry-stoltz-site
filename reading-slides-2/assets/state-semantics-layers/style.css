@@ -1,0 +1,81 @@
+/* The approved opening and expansion retain their original geometry. */
+.reveal .semantic-chain-expansion-slide .sproof-chain{width:912px;gap:44px;}
+.reveal .semantic-chain-expansion-slide .sproof-row,
+.reveal .semantic-chain-expansion-slide .sproof-step{grid-template-columns:419px 92px 401px;min-height:126px;}
+.reveal .semantic-chain-expansion-slide .sproof-opening>.sproof-step{grid-template-columns:92px 401px;}
+.reveal .semantic-chain-expansion-slide .sproof-rhs,
+.reveal .semantic-chain-expansion-slide .sproof-lhs{gap:1px;}
+.reveal .semantic-chain-expansion-slide .sproof-step:last-child{min-height:126px;}
+.reveal .semantic-chain-expansion-slide .math{font-size:24px;}
+
+.reveal .semantic-layer-slide .content{gap:16px;}
+.reveal .semantic-layer-slide .layer-chain{width:912px;max-width:100%;display:flex;flex-direction:column;gap:26px;}
+.reveal .semantic-layer-slide .layer-carry{min-height:110px;display:flex;align-items:center;}
+.reveal .semantic-layer-slide .layer-carry>.sproof-rhs{padding-left:4px;}
+.reveal .semantic-layer-slide .sproof-step{grid-template-columns:96px minmax(0,1fr);min-height:110px;}
+.reveal .semantic-layer-slide .sproof-rhs{gap:3px;}
+.reveal .semantic-layer-slide .sproof-notation .math{font-size:24px;}
+.reveal .semantic-layer-slide .spider-tensor{display:flex;align-items:center;gap:0;flex:0 0 auto;}
+.reveal .semantic-layer-slide .spider-tensor>.math{flex:0 0 auto;}
+.reveal .green-layer-slide .layer-chain{gap:22px;}
+.reveal .green-layer-slide .content{gap:8px;}
+.reveal .green-layer-slide .sproof-notation .math{font-size:21px;}
+.reveal .green-layer-slide .sproof-rhs>.math,.reveal .green-layer-slide .spider-tensor>.math{font-size:25px;}
+.reveal .red-layer-slide .layer-chain{gap:18px;}
+.reveal .red-layer-slide .layer-carry .math{font-size:25px;}
+.reveal .red-layer-slide .sproof-step[data-fragment-index="1"]{min-height:76px;}
+.reveal .red-layer-slide .sproof-step[data-fragment-index="1"] .math{font-size:24px;}
+.reveal .red-layer-slide .sproof-step[data-fragment-index="2"]{min-height:100px;}
+.reveal .red-layer-slide .sproof-step[data-fragment-index="2"] .math{font-size:27px;}
+.reveal .semantic-layer-slide .algebra-layer-chain{gap:30px;}
+.reveal .semantic-layer-slide .algebra-layer-chain .layer-carry{min-height:100px;}
+.reveal .semantic-layer-slide .algebra-layer-chain .sproof-step{min-height:100px;}
+.reveal .basis-layer-slide .sproof-step[data-fragment-index="1"]{min-height:140px;}
+.reveal .count-layer-slide .algebra-layer-chain{gap:14px;}
+.reveal .count-layer-slide .algebra-layer-chain .layer-carry{min-height:78px;}
+.reveal .count-layer-slide .sproof-step{min-height:84px;}
+.reveal .count-layer-slide .sproof-step[data-fragment-index="3"]{min-height:78px;}
+.reveal .count-layer-slide .qed{margin-top:-14px;}
+
+.reveal .basis-layer-slide .layer-carry .math{font-size:27px;}
+
+/* Concise finish: carry the approved linearity term on the left. */
+.reveal .semantic-chain-count-slide .content{gap:10px;}
+.reveal .semantic-chain-count-slide .sproof-chain{width:912px;gap:8px;}
+.reveal .semantic-chain-count-slide .sproof-notation .math{font-size:25px;}
+.reveal .semantic-chain-count-slide .sproof-row,
+.reveal .semantic-chain-count-slide .sproof-step{grid-template-columns:376px 112px minmax(0,1fr);min-height:88px;}
+.reveal .semantic-chain-count-slide .sproof-opening{min-height:136px;}
+.reveal .semantic-chain-count-slide .sproof-opening>.sproof-step{grid-template-columns:112px minmax(0,1fr);}
+.reveal .semantic-chain-count-slide .sproof-lhs{gap:1px;}
+.reveal .semantic-chain-count-slide .sproof-lhs>.math{font-size:24px;}
+.reveal .semantic-chain-count-slide .qed{margin-top:-16px;}
+.reveal .sproof-rule a.statement-reference{color:blue;text-decoration-color:blue;text-underline-offset:.15em;}
+.reveal .statement-popup .parity-recall-equation{display:flex;align-items:center;justify-content:center;gap:12px;}
+.reveal .statement-popup .parity-recall-equation .katex-display{margin:0;}
+
+/* Show the missing basis calculation locally, without refactoring the graph. */
+.reveal .basis-action-slide .content{gap:8px;}
+.reveal .basis-action-calculation{width:912px;max-width:100%;display:flex;flex-direction:column;gap:8px;}
+.reveal .basis-action-calculation p{margin:0;}
+.reveal .basis-action-conclusion{display:flex;flex-direction:column;gap:8px;}
+.reveal .basis-action-box{border:1px solid #000;padding:12px 18px;box-sizing:border-box;}
+.reveal .basis-action-box p{font-size:25px;}
+.reveal .basis-action-coordinates{display:flex;align-items:center;gap:18px;}
+.reveal .basis-action-box .basis-action-coordinates>p{width:auto;flex:0 0 auto;}
+.reveal .basis-action-coordinates>.math{flex:1;}
+.reveal .basis-action-application{width:100%;}
+.reveal .basis-action-tag{margin-left:14px;flex:0 0 auto;}
+.reveal .basis-action-slide .math{font-size:24px;}
+.reveal .basis-action-row{display:grid;grid-template-columns:300px 90px minmax(0,1fr) 120px;align-items:center;min-height:110px;}
+.reveal .basis-action-label{grid-column:4;font-size:24px;text-align:left;white-space:nowrap;}
+.reveal .basis-action-input{display:flex;align-items:center;justify-content:flex-end;gap:1px;}
+.reveal .basis-action-result{grid-column:2 / 4;display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;}
+.reveal .basis-action-short{min-height:52px;}
+.reveal .basis-action-notation{margin-top:2px;}
+.reveal .basis-action-global{display:flex;align-items:center;justify-content:center;min-height:126px;gap:6px;}
+.reveal .basis-action-global-step{display:flex;align-items:center;gap:6px;}
+.reveal .basis-action-global-step>.sproof-relation{width:38px;flex:0 0 38px;}
+.reveal .basis-action-global-end{display:flex;align-items:center;gap:6px;}
+.reveal .basis-action-global-end>.sproof-relation{width:24px;flex:0 0 24px;}
+.reveal .basis-action-implication{display:flex;align-items:center;margin-right:8px;}

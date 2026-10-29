@@ -1,0 +1,14 @@
+.reveal .algorithm-example{width:912px;position:relative;flex:none;}
+.reveal .algorithm-example .statement-label{font-size:25px;margin:0 0 0!important;line-height:1.3;}
+.reveal #algorithm-two-example{display:block;margin:-3px 0 0;width:912px;height:300px;overflow:visible;}
+.reveal #algorithm-two-example text{font-family:KaTeX_Main,"Times New Roman",serif;fill:#000;font-size:29px;}
+.reveal #algorithm-two-example .algorithm-example-scalar-value{display:flex;align-items:center;justify-content:center;width:80px;height:56px;font-size:24px;line-height:1;color:#000;}
+.reveal #algorithm-two-example .algorithm-example-wires path{stroke:#222;stroke-width:1.15;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.reveal #algorithm-two-example .algorithm-example-wires path.is-active{stroke:#00f;stroke-width:3.4;}
+.reveal #algorithm-two-example .algorithm-example-nodes circle{stroke:#222;stroke-width:1.15;}
+.reveal #algorithm-two-example .algorithm-example-nodes circle.is-active{stroke:#00f;stroke-width:2.8;}
+.reveal .algorithm-trigger{position:absolute;left:0;bottom:0;width:0;height:0;overflow:hidden;transition:none!important;pointer-events:none;}
+.reveal .algorithm-two-slide .fragment{transition:none!important;}
+
+.reveal .algorithm-two-slide h2{font-size:36px;}
+.reveal .algorithm-two-slide .content{justify-content:flex-start;gap:14px;}
