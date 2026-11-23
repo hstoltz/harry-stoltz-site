@@ -1,0 +1,84 @@
+/* AP and exact completeness proof. All dimensions refer to the 960 × 700 stage. */
+.reveal .ap-slide .content{position:relative;align-items:stretch;justify-content:center}
+.reveal .ap-slide .content p{line-height:1.37}
+.reveal .ap-slide .content figure{margin:0}
+.reveal .ap-slide .content img{max-height:none}
+.reveal .ap-slide h2{margin-bottom:18px}
+.reveal .ap-recall{font-size:25px;line-height:1.36;width:100%}
+.reveal .ap-recall-label{font-size:28px;margin-bottom:20px!important}
+.reveal .ap-recall-grid{display:grid;grid-template-columns:590px 290px;gap:30px;align-items:center}
+.reveal .ap-slide ol{display:block;margin:18px 0 0;padding-left:31px}
+.reveal .ap-slide li{padding-left:5px;margin:14px 0 0}
+.reveal .ap-recall-grid figure img{width:280px;max-width:none;margin:auto}
+.reveal .ap-recall-grid figcaption{font-size:22px;text-align:center;margin-top:18px;line-height:1.65}
+.reveal .ap-fact{font-size:26px;margin-top:34px!important}
+.reveal .ap-definition{font-size:29px;line-height:1.48;padding:10px 16px}
+.reveal .ap-definition ol{margin-top:30px;padding-left:35px}
+.reveal .ap-definition li{margin-top:26px;line-height:1.47}
+.reveal .ap-unique{font-size:28px;line-height:1.42;padding:0 12px}
+.reveal .ap-unique p{margin-bottom:24px;line-height:1.42!important}
+.reveal .ap-unique .ap-display{margin:24px 0 32px}
+.reveal .ap-unique-continued{font-size:25.4px;line-height:1.36}
+.reveal .ap-unique-continued p{line-height:1.36!important;margin-bottom:17px}
+.reveal .ap-unique-continued .ap-display{margin:14px 0 16px}
+.reveal .ap-continued{font-size:24px;margin-bottom:20px!important}
+.reveal .ap-qed{float:right;font-size:23px;margin-left:12px;line-height:1.6}
+.reveal .ap-stage{position:relative;width:912px;height:572px;flex:0 0 572px}
+.reveal .ap-cue{position:absolute;left:0;right:0;top:8px;font-size:26px;line-height:1.34;text-align:left;min-height:68px}
+.reveal .ap-bottom{position:absolute;left:0;right:0;bottom:10px;min-height:52px;text-align:center;font-size:28px;line-height:1.35}
+.reveal .ap-small{font-size:23px;line-height:1.35}
+.reveal .ap-reach-svg{position:absolute;left:6px;top:82px;width:900px;height:400px;overflow:visible}
+.reveal .ap-reach .ap-bottom{bottom:0}
+.reveal .ap-bend-a,.reveal .ap-bend-b{transition:d 280ms ease}
+.reveal .ap-row-panel{position:absolute;left:212px;top:65px;width:500px;height:420px}
+.reveal .ap-row-panel img{width:500px;height:420px;max-width:none}
+.reveal .ap-row-context{position:absolute;inset:0;pointer-events:none}
+.reveal .ap-context-box{position:absolute;left:700px;top:84px;width:150px;height:354px;border:1.5px solid #111;display:flex;align-items:center;justify-content:center;text-align:center;font-size:21px;line-height:1.5;background:white}
+.reveal .ap-scalar-label{position:absolute;left:110px;top:250px;border:1.5px solid #111;padding:11px 16px}
+.reveal .ap-context-wires{position:absolute;inset:0}
+.reveal .ap-full-image{position:absolute;top:75px;left:6px;width:900px;height:400px}
+.reveal .ap-full-image img{width:900px;height:400px}
+.reveal .ap-branch{position:absolute;top:95px;left:20px;right:20px;text-align:center}
+.reveal .ap-zero-row{font-size:34px;margin:20px auto 18px;display:flex;gap:18px;justify-content:center;align-items:center}
+.reveal .ap-red-null{display:inline-flex;background:#e8a5a5;border:1.6px solid #111;border-radius:50%;width:48px;height:48px;align-items:center;justify-content:center}
+.reveal .ap-red-null:empty{width:20px;height:20px;margin:14px}
+.reveal .ap-branch img{width:680px;height:300px;object-fit:contain;margin:auto}
+.reveal .ap-row-summary{font-size:27px;margin:70px 0 40px!important}
+.reveal .ap-native-panel{position:absolute;left:212px;top:70px;width:500px;height:330px}
+.reveal .ap-native-panel img{width:500px;height:330px;max-width:none}
+.reveal .ap-local-context{position:absolute;left:700px;top:116px;width:150px;height:250px;box-sizing:border-box;border:1.5px solid #111;display:flex;align-items:center;justify-content:center;text-align:center;background:#fff;line-height:1.5;font-size:22px}
+.reveal .ap-local-stubs{position:absolute;left:0;top:0;width:912px;height:450px;pointer-events:none}
+.reveal .ap-factor{position:absolute;left:112px;top:220px;border:1.5px solid #111;padding:11px 17px;font-size:27px;min-width:38px;text-align:center}
+.reveal .ap-local .ap-bottom{bottom:24px}
+.reveal .ap-local .ap-cue{min-height:56px}
+.reveal .ap-outside-panel{position:absolute;left:212px;top:65px;width:500px;height:365px}
+.reveal .ap-outside-panel img{width:500px;height:365px;max-width:none}
+.reveal .ap-outside .ap-local-context{top:102px;height:300px}
+.reveal .ap-outside .ap-bottom{bottom:15px}
+.reveal .ap-singleton-state{position:absolute;inset:100px 10px 10px}
+.reveal .ap-singletons{height:260px;display:flex;align-items:center;justify-content:space-around;gap:110px}
+.reveal .ap-singletons img{width:150px;max-height:240px;object-fit:contain}
+.reveal .ap-singleton-eq{font-size:27px;margin-top:35px}
+.reveal .ap-termination{position:absolute;top:105px;left:20px;right:20px;font-size:27px}
+.reveal .ap-termination p{margin-bottom:27px;line-height:1.4}
+.reveal .ap-termination .ap-display{font-size:24px;margin-top:34px}
+.reveal .ap-finished .ap-cue{font-size:27px}
+.reveal .ap-finished-graph{position:absolute;top:85px;left:6px;width:900px;height:400px}
+.reveal .ap-finished .ap-bottom{bottom:0}
+.reveal .ap-finished .ap-bottom .ref{font-size:21px}
+.reveal .ap-final .ap-theorem-statement{font-size:28px;position:absolute;top:0;left:0;right:0}
+.reveal .ap-final-quote{position:absolute;top:58px;left:0;right:0;font-size:24.5px;line-height:1.35;min-height:112px}
+.reveal .ap-final-picture{position:absolute;top:156px;left:6px;width:900px;height:344px}
+.reveal .ap-final-picture img{width:900px;height:344px;object-fit:contain;max-width:none}
+.reveal .ap-final-bottom{position:absolute;left:0;right:0;bottom:7px;text-align:center;font-size:28px;line-height:1.4}
+.reveal .ap-final-bottom.ap-small{font-size:20.7px;bottom:13px}
+.reveal .ap-final-bottom .ref{font-size:23px}
+.reveal .ap-final-path-quote{position:absolute;left:0;right:0;top:0;font-size:26px;line-height:1.4}
+.reveal .ap-path-image{position:absolute;left:6px;right:6px;top:135px;height:350px}
+.reveal .ap-path-image img{width:900px;height:350px;object-fit:contain;max-width:none}
+.reveal .ap-finish .ap-bottom{bottom:4px}
+.reveal .ap-goal{font-size:29px;bottom:25px!important}
+.ap-ref-body{font-size:24px;line-height:1.42}
+.ap-ref-body img{display:block;max-width:100%;max-height:380px;object-fit:contain;margin:20px auto}
+.ap-ref-body ol{font-size:22px}
+#reference-body .ap-ref-body .katex-display{font-size:23px;overflow:visible}
