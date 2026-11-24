@@ -1,0 +1,97 @@
+/* Proposition 5.5.1 shares the lecture's scalar glyphs and build transitions. */
+.reveal #scalar-decomposition .sd-content { display: block; position: relative; padding: 0; }
+#scalar-decomposition .sd-statement, #scalar-decomposition .sd-proof { position: absolute; inset: 0; }
+#scalar-decomposition .sd-statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 37px;
+  padding: 0 13px 18px;
+  font-size: 28px;
+  line-height: 1.43;
+}
+#scalar-decomposition .sd-statement strong { font-weight: 700; }
+#scalar-decomposition .sd-statement figure { align-self: center; }
+#scalar-decomposition .sd-statement figure img { width: 535px; }
+#scalar-decomposition .sd-proof-heading {
+  position: absolute;
+  inset: 28px 12px auto;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 25px;
+  line-height: 1.38;
+}
+#scalar-decomposition .sd-cues, #scalar-decomposition .sd-counts { display: grid; }
+#scalar-decomposition .sd-cue, #scalar-decomposition .sd-count { grid-area: 1 / 1; }
+
+#scalar-decomposition .sd-proof-heading { z-index:2; }
+/* One fixed equality. Each column of untouched factors stays on its register. */
+#scalar-decomposition .rc-product { position:absolute; inset:172px 0 auto; height:222px; --sf-unit:2.57px; }
+#scalar-decomposition .rc-lhs, #scalar-decomposition .rc-stack, #scalar-decomposition .rc-graph {
+  position:absolute; left:var(--pos); top:50%; transform:translate(-50%,-50%);
+}
+#scalar-decomposition .rc-lhs { --pos:51px; font-size:32px; white-space:nowrap; }
+#scalar-decomposition .rc-stack { width:90px; display:grid; grid-template-rows:45px 43px 45px; align-items:center; justify-items:center; }
+#scalar-decomposition .rc-stack.sf-visible { transition:opacity 220ms ease-in-out 80ms,left 300ms ease,visibility 0s; }
+#scalar-decomposition .slot-1 { --pos:157px; }
+#scalar-decomposition .slot-2 { --pos:251px; }
+#scalar-decomposition .slot-3 { --pos:337px; }
+#scalar-decomposition .slot-4 { --pos:436px; }
+#scalar-decomposition .slot-5 { --pos:540px; }
+#scalar-decomposition .slot-6 { --pos:622px; }
+#scalar-decomposition .slot-7 { --pos:691px; }
+#scalar-decomposition .slot-8 { --pos:764px; }
+#scalar-decomposition .slot-9 { --pos:850px; }
+#scalar-decomposition:is([data-scalar-build="11"],[data-scalar-build="12"]) .slot-1 { --pos:187px; }
+#scalar-decomposition:is([data-scalar-build="11"],[data-scalar-build="12"]) .slot-2 { --pos:317px; }
+#scalar-decomposition[data-scalar-build="12"] .slot-7 { --pos:565px; }
+#scalar-decomposition[data-scalar-build="12"] .slot-8 { --pos:669px; }
+#scalar-decomposition[data-scalar-build="12"] .slot-9 { --pos:775px; }
+#scalar-decomposition .rc-graph { --pos:630px; display:grid; justify-items:center; gap:14px; width:262px; font-size:22px; }
+#scalar-decomposition .rc-graph > img { width:100%; }
+#scalar-decomposition .rc-graph > span { position:absolute; top:calc(100% + 12px); white-space:nowrap; }
+.rc-multiplicity { display:inline-flex; align-items:center; justify-content:center; gap:6px; font-size:19px; }
+.rc-counts { position:relative; display:grid; align-items:center; justify-items:center; }
+.rc-counts > .stack-count { grid-area:1/1; white-space:nowrap; }
+.rc-counts > .stack-count:not(.sf-visible) { position:absolute; }
+.sd-zero { --sf-width:6.26; } .sd-mixed { --sf-width:30.16; }
+.sd-h00 { --sf-width:24.64; } .sd-h01 { --sf-width:27.47; } .sd-h11 { --sf-width:30.3; }
+#scalar-decomposition .rc-identity { position:absolute; top:111px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:15px; --sf-unit:2.7px; }
+#scalar-decomposition .rc-end { position:absolute; right:12px; top:391px; }
+.reveal .statement-popup .sd-pop-schematic,
+.reveal .statement-popup .sd-popup-tokens { display: flex; align-items: center; justify-content: center; gap: 45px; width: 100%; }
+.reveal .statement-popup .sd-pop-schematic > img { width: 235px; max-height: 170px; object-fit: contain; }
+.reveal .statement-popup .sd-popup-tokens > span { display: inline-flex; align-items: center; gap: 12px; }
+.reveal .statement-popup .sd-popup-math { text-align: center; }
+.reveal .statement-popup .sd-book-rule { width: min(480px,90%); }
+.reveal .statement-popup .sd-book-rule img { width: 100%; height: auto; margin: auto; }
+
+@media (prefers-reduced-motion: reduce) { #scalar-decomposition .rc-stack.sf-visible { transition:none; } }
+
+#scalar-decomposition .component-tail { position:absolute; inset:0; pointer-events:none; }
+#scalar-decomposition .scalar-example { position:absolute; inset:104px 0 0; }
+#scalar-decomposition .scalar-worked-graph { position:absolute; left:126px; right:28px; top:116px; width:calc(100% - 154px); height:249px; overflow:visible; }
+#scalar-decomposition .sample-caption { position:absolute; top:387px; left:0; right:0; text-align:center; font-size:20px; }
+.inline-zx-identity { display:inline-flex; align-items:center; gap:9px; vertical-align:middle; --sf-unit:2.1px; }
+.example-links line { stroke:#4488ff; stroke-width:2.25; stroke-dasharray:5 3.5; }
+.example-links .selected-edge { stroke:#96ceb3; stroke-dasharray:none; stroke-width:7; }
+.example-vertices .selected-rim { stroke:#08735b; stroke-width:5; fill:none; }
+
+#scalar-decomposition .equality-register { position:absolute; left:224px; right:80px; top:4px; height:66px; --sf-unit:2.45px; font-size:31px; }
+.equality-register .reg-term { position:absolute; left:var(--reg-x); top:50%; transform:translate(-50%,-50%); display:inline-flex; align-items:center; }
+.equality-register .reg-left { --reg-x:33px; }
+.equality-register .reg-single { --reg-x:125px; }
+.equality-register .reg-triple { --reg-x:215px; }
+.equality-register .reg-plus { --reg-x:291px; }
+.equality-register .reg-minus { --reg-x:366px; }
+.equality-register .reg-graph { --reg-x:451px; display:grid; justify-items:center; transition:left .38s ease; }
+#scalar-decomposition:is([data-scalar-build="1"],[data-scalar-build="2"]) .reg-graph { --reg-x:291px; }
+#scalar-decomposition:is([data-scalar-build="3"],[data-scalar-build="4"]) .reg-graph { --reg-x:366px; }
+.equality-register .register-exponent { display:grid; align-self:flex-start; position:relative; top:-8px; margin-left:3px; min-width:12px; font-size:18px; }
+.register-exponent > .token-power,.reg-graph > .graph-name { grid-area:1/1; }
+@media (prefers-reduced-motion:reduce) { .equality-register .reg-graph { transition:none; } }
+
+#scalar-decomposition .worked-divider { position:absolute; top:86px; left:20px; right:20px; margin:0; height:0; border:0; border-top:1px solid #b9bfbc; }
+#scalar-decomposition .scalar-example-lhs { position:absolute; top:240.5px; left:36px; transform:translateY(-50%); font-size:29px; }

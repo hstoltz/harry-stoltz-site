@@ -1,0 +1,218 @@
+/* Theorem 5.5.2 uses one product. Its factors and their multiplicities have separate lifetimes. */
+.reveal #scalar-normal-form .sf-content {
+  display: block;
+  position: relative;
+  padding: 0;
+  font-size: 27px;
+}
+#scalar-normal-form .sf-theorem,
+#scalar-normal-form .sf-proof { position: absolute; inset: 0; }
+:is(#scalar-normal-form, #scalar-decomposition) .sf-step { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+:is(#scalar-normal-form, #scalar-decomposition) .sf-change {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease-out, visibility 0s linear 180ms;
+}
+:is(#scalar-normal-form, #scalar-decomposition) .sf-change.sf-visible {
+  opacity: 1;
+  visibility: inherit;
+  pointer-events: auto;
+  transition: opacity 240ms ease-in-out 125ms, visibility 0s;
+}
+#scalar-normal-form .sf-theorem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 0 13px 13px;
+}
+#scalar-normal-form .sf-summary-heading { display: grid; align-self: stretch; }
+#scalar-normal-form .sf-opening,
+#scalar-normal-form .sf-conclusion {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#scalar-normal-form .sf-opening { gap: 34px; }
+#scalar-normal-form .sf-conclusion { gap: 16px; }
+#scalar-normal-form .sf-conclusion .sf-target { font-size: 39px; }
+#scalar-normal-form .sf-final-count { font-size: 23px; color:#686b6c; }
+#scalar-normal-form .sf-statement { align-self: stretch; font-size: 28px; line-height: 1.43; }
+#scalar-normal-form .sf-statement strong { font-weight:700; }
+#scalar-normal-form .sf-target { text-align: center; font-size: 34px; }
+#scalar-normal-form .sf-where { display: flex; align-items: flex-start; gap: 32px; --sf-unit: 2.62px; }
+#scalar-normal-form .sf-where-word { line-height: 46px; }
+#scalar-normal-form .sf-choices {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  gap: 12px 8px;
+}
+#scalar-normal-form .sf-set-name { text-align: right; white-space: nowrap; }
+#scalar-normal-form .sf-set-items,
+#scalar-normal-form .sf-where-word { min-height: 46px; }
+#scalar-normal-form .sf-set-items,
+.sf-option-tail,
+.sf-rewrite,
+.sf-zero-eval,
+#scalar-normal-form .sf-sign-set,
+#scalar-normal-form .sf-residual-set {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+#scalar-normal-form .sf-set-items { gap: 5px; }
+#scalar-normal-form .sf-separator { align-self: center; margin: 0 2px 0 0; transform: translateY(.17em); font-family: KaTeX_Main, serif; }
+#scalar-normal-form .sf-proof-heading {
+  position: absolute;
+  inset: 40px 12px auto;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 15px;
+  align-items: baseline;
+  line-height: 1.42;
+  font-size: 26px;
+}
+#scalar-normal-form .sf-cues { display: grid; }
+#scalar-normal-form .sf-cue { grid-area: 1 / 1; }
+.reveal a.sf-ref { color: var(--r-link-color); }
+.sf-identity-line {
+  position: absolute;
+  top: 99px;
+  left: 0;
+  right: 0;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  --sf-unit: 2.55px;
+  font-size: 27px;
+}
+.sf-identity { grid-area: 1 / 1; }
+.sf-zero-eval { gap: 3px; }
+.sf-rewrite { gap: 12px; }
+.sf-labelled-equals { position: relative; display: inline-flex; justify-content: center; min-width: 25px; }
+.reveal a.sf-rule { color: #222; text-decoration: none; font-family: KaTeX_Main, serif; }
+.reveal a.sf-rule > span { color: #00a; }
+.reveal a.sf-rule:hover > span { text-decoration: underline; }
+.reveal a.sf-rule:focus-visible { outline: 2px solid #0f886e; outline-offset: 3px; }
+.sf-labelled-equals .sf-rule { position: absolute; bottom: calc(100% - 6px); left: 50%; transform: translateX(-50%); font-size: 19px; }
+#scalar-normal-form .sf-product {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 164px;
+  height: 254px;
+  --sf-unit: 2.9px;
+}
+#scalar-normal-form .sf-left-equation,
+#scalar-normal-form .sf-main-stack,
+#scalar-normal-form .sf-residual,
+#scalar-normal-form .sf-sign-factor {
+  position: absolute;
+  top: 50%;
+  left: var(--x);
+  transform: translate(-50%, -50%);
+}
+#scalar-normal-form .sf-left-equation { --x: 71px; font-size: 32px; }
+#scalar-normal-form .sf-main-stack {
+  height: 140px;
+  width: 110px;
+  display: grid;
+  grid-template-rows: 42px 42px 42px;
+  align-content: center;
+  place-items: center;
+}
+#scalar-normal-form .sf-multiplicity { display: flex; position: relative; height: 40px; align-items: center; justify-content: center; }
+#scalar-normal-form .sf-dots { font-size: 20px; }
+#scalar-normal-form .sf-count { position: absolute; left: calc(100% + 7px); display: grid; align-items: center; font-size: 22px; }
+#scalar-normal-form .sf-count-value { grid-area: 1 / 1; }
+#scalar-normal-form .sf-residual { --x: 608px; font-size: 35px; }
+#scalar-normal-form .sf-sign-column { --x: 438px; }
+#scalar-normal-form .sf-sign-factor { font-size: 35px; }
+#scalar-normal-form .sf-foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 476px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  --sf-unit: 2.52px;
+  font-size: 26px;
+}
+#scalar-normal-form .sf-foot > .sf-change { grid-area: 1 / 1; }
+#scalar-normal-form .sf-count-domain { font-size: 23px; }
+#scalar-normal-form .sf-residual-set { min-width: 563px; gap: 9px; }
+#scalar-normal-form .sf-set-alias { display: grid; width: 70px; text-align: right; }
+#scalar-normal-form .sf-alias { grid-area: 1 / 1; }
+#scalar-normal-form .sf-option-tail {
+  width: 0;
+  margin-left: -5px;
+  gap: 7px;
+  overflow: hidden;
+  transition: width 330ms ease, opacity 170ms ease, visibility 0s linear 330ms;
+}
+#scalar-normal-form .sf-option-tail.sf-visible {
+  width: 121px;
+  margin-left: 0;
+  transition: width 330ms ease, opacity 220ms ease 110ms, visibility 0s;
+}
+#scalar-normal-form .sf-option-tail > img { flex: none; }
+#scalar-normal-form .sf-sign-set { gap: 9px; }
+#scalar-normal-form .sf-cases {
+  position: absolute;
+  top: 50%; left: 127px;
+  transform: translateY(-50%);
+  width: 340px; height: 244px;
+  display: flex; justify-content: center; align-items: center;
+  --sf-unit: 2px;
+}
+#scalar-normal-form .sf-product img.sf-case-brace {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 214px;
+  max-height: none;
+}
+#scalar-normal-form .sf-case-list { display: grid; grid-template-rows: 90px 44px 90px; place-items: center; }
+#scalar-normal-form .sf-case-row { width: 215px; display: grid; grid-template-columns: 108px 1fr; align-items: center; justify-items: center; }
+#scalar-normal-form .sf-case-stack { display: grid; justify-items: center; align-items: center; gap: 2px; }
+#scalar-normal-form .sf-case-count { line-height: 1; font-size: 16px; }
+#scalar-normal-form .sf-if { font-size: 25px; }
+#scalar-normal-form .sf-underbrace { position: absolute; top: calc(100% - 27px); left: 17px; font-size: 27px; }
+.reveal .content img.sf-glyph {
+  display: inline-block;
+  flex: none;
+  width: calc(var(--sf-width) * var(--sf-unit, 2.55px));
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  vertical-align: middle;
+}
+.sf-single { --sf-width: 20.74226; }
+.sf-triple { --sf-width: 27.82816; }
+.sf-sign { --sf-width: 33.56; }
+.sf-pi, .sf-plus { --sf-width: 12.3; }
+.sf-minus { --sf-width: 18.7; }
+.sf-positive-pair { --sf-width: 30.02; }
+.sf-negative-pair { --sf-width: 40.3; }
+.sf-empty { --sf-width: 14.5; }
+.reveal .statement-popup .statement-popup-body { height: auto; width: 100%; gap: 18px; --sf-unit: 2.85px; }
+.reveal .statement-popup .statement-label { align-self: stretch; }
+.reveal .statement-popup .sf-ref-figure { width: min(520px, 95%); }
+.reveal .statement-popup .sf-ref-figure img { width: 100%; height: auto; max-height: 38vh; object-fit: contain; margin: 0 auto; }
+.reveal .statement-popup .sf-popup-equation { --sf-unit: 4.4px; }
+@media (prefers-reduced-motion: reduce) {
+  :is(#scalar-normal-form, #scalar-decomposition) .sf-change, :is(#scalar-normal-form, #scalar-decomposition) .sf-change.sf-visible { transition: none; }
+}
+
+
+#scalar-normal-form[data-scalar-build="6"] .sf-sign-column { --x:525px; }
+#scalar-normal-form[data-scalar-build="6"] .sf-residual { --x:695px; }

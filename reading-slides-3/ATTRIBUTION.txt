@@ -1,0 +1,13 @@
+Completeness of Clifford ZX-diagrams
+Slides by Harry K. Stoltz.
+
+Book text and diagrams adapted from Aleks Kissinger and John van de Wetering,
+Picturing Quantum Software, Chapters 3 and 5, licensed under CC BY-NC 4.0.
+https://zxcalc.github.io/book/html/main_htmlch5.html
+https://creativecommons.org/licenses/by-nc/4.0/
+The presentation adapts the book's diagrams into examples and animated rewrites.
+The speaker notes identify the original sections, propositions and figures.
+The Cambridge screenshot was supplied separately by the presenter.
+
+The book licence is in assets/book/LICENSE-CC-BY-NC-4.0.txt.
+Runtime and font notices are in vendor/.
